@@ -785,29 +785,372 @@
     }
 
     @media(max-width:640px) {
-      .hero-h1 {
-        font-size: 34px;
+      /* ── HERO MOBILE ── */
+      .hero-wrap {
+        min-height: 500px;
       }
 
       .hero-nav {
-        padding: 1.25rem 1.25rem;
+        padding: 1rem 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
+      .logo {
+        order: 1;
+      }
+
+      .nav-right {
+        order: 2;
+        gap: 8px;
+      }
+
+      .nav-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+      }
+
+      .btn-nav {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .hero-h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .hero-sub {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 100%;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .hero-note {
+        font-size: 12px;
+      }
+
+      /* ── LAYOUT MOBILE ── */
+      .lp {
+        padding: 0 1rem;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+      }
+
+      .section h2 {
+        font-size: 24px;
+        line-height: 1.3;
+      }
+
+      .lead {
+        font-size: 15px;
+        max-width: 100%;
+      }
+
+      /* ── DEMO MOBILE ── */
+      .demo-frame {
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      .personas {
+        gap: 8px;
+        padding-bottom: 8px;
+      }
+
+      .persona {
+        min-width: 120px;
+        padding: 0.6rem 0.8rem;
+      }
+
+      .persona .av {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+      }
+
+      .persona h4 {
+        font-size: 12px;
+      }
+
+      .persona span {
+        font-size: 10px;
+      }
+
+      .chat-area {
+        padding: 0.8rem;
+      }
+
+      .msg {
+        gap: 6px;
+        margin-bottom: 0.6rem;
+      }
+
+      .bubble {
+        font-size: 12px;
+        padding: 8px 11px;
+        max-width: 85%;
+      }
+
+      .av-sm {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+      }
+
+      .chat-input-row {
+        gap: 6px;
+      }
+
+      .chat-mock-input {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      .chat-send-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      /* ── STEPS MOBILE ── */
       .steps {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
 
+      .step {
+        padding: 1rem;
+      }
+
+      .step h3 {
+        font-size: 14px;
+      }
+
+      .step p {
+        font-size: 12px;
+      }
+
+      /* ── WHY CARDS MOBILE ── */
       .why-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
 
+      .why-card {
+        padding: 1.2rem;
+      }
+
+      .why-card .ic {
+        font-size: 14px;
+      }
+
+      .why-card h3 {
+        font-size: 13px;
+      }
+
+      .why-card p {
+        font-size: 12px;
+      }
+
+      .why-card cite {
+        font-size: 10px;
+        padding-left: 6px;
+      }
+
+      /* ── NATURE BLOCK MOBILE ── */
+      .nature-block {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .nature-badge {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 1rem;
+      }
+
+      .nb-journal {
+        font-size: 16px;
+      }
+
+      .nb-tag {
+        font-size: 11px;
+        padding: 2px 8px;
+      }
+
+      .nature-headline {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .nature-body {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .nature-link {
+        font-size: 12px;
+      }
+
+      /* ── DSGVO BLOCK MOBILE ── */
       .dsgvo-block {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
       }
 
+      .dsgvo-headline {
+        font-size: 22px;
+        line-height: 1.3;
+      }
+
+      .dsgvo-body {
+        font-size: 14px;
+      }
+
+      .dsgvo-right {
+        gap: 8px;
+      }
+
+      .dsgvo-card {
+        padding: 0.8rem 1rem;
+      }
+
+      .dsgvo-icon {
+        font-size: 18px;
+      }
+
+      .dsgvo-card-text h4 {
+        font-size: 13px;
+      }
+
+      .dsgvo-card-text p {
+        font-size: 11px;
+      }
+
+      /* ── RESEARCH MOBILE ── */
+      .research {
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .research h3 {
+        font-size: 14px;
+      }
+
+      .research-items {
+        gap: 12px;
+      }
+
+      .r-item {
+        gap: 10px;
+      }
+
+      .r-item p {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .r-item cite {
+        font-size: 10px;
+        margin-top: 2px;
+      }
+
+      /* ── CTA BLOCK MOBILE ── */
+      .cta-block {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .cta-block h2 {
+        font-size: 22px;
+        line-height: 1.3;
+      }
+
+      .cta-block p {
+        font-size: 15px;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-light {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .cta-sub {
+        font-size: 12px;
+      }
+
+      /* ── FOOTER MOBILE ── */
       footer {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem 0;
+        margin-bottom: 1rem;
+      }
+
+      footer p {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      /* ── PROOF BAR MOBILE ── */
+      .proof {
+        padding: 1rem 0;
+        margin-bottom: 3rem;
+      }
+
+      .proof p {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+    }
+
+    @media(max-width:480px) {
+      .hero-h1 {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
+
+      .nature-headline {
+        font-size: 18px;
+      }
+
+      .dsgvo-headline {
+        font-size: 20px;
+      }
+
+      .cta-block h2 {
+        font-size: 20px;
       }
     }
   </style>
