@@ -1252,7 +1252,7 @@
 
     .persona:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
     .step {
@@ -1261,7 +1261,7 @@
 
     .step:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     .why-card {
@@ -1270,7 +1270,7 @@
 
     .why-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     }
 
     .btn-primary,
@@ -1289,6 +1289,7 @@
         opacity: 0;
         transform: translateY(-20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -1300,6 +1301,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -1307,12 +1309,19 @@
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
         transform: translateY(0);
       }
+
       40% {
         transform: translateY(-10px);
       }
+
       60% {
         transform: translateY(-5px);
       }
@@ -1323,6 +1332,7 @@
         opacity: 0;
         transform: translateX(-10px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -1349,6 +1359,7 @@
       from {
         opacity: 0;
       }
+
       to {
         opacity: 1;
       }
@@ -1403,7 +1414,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Add animation classes to elements
       const animatedElements = document.querySelectorAll('.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer');
-      
+
       animatedElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
