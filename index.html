@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
   <!-- SEO -->
   <title>haico – Dein Kunde sitzt immer mit am Tisch</title>
   <meta name="description"
@@ -18,7 +23,7 @@
     content="Digitale Kundenpersonen, die du jederzeit befragen kannst. KI-gestützt, akademisch fundiert, DSGVO-konform.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://haico.scaletechsolutions.ai">
-  <meta property="og:image" content="http://haico.scaletechsolutions.ai/og-image.jpg">
+  <meta property="og:image" content="assets/og-image.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -380,6 +385,10 @@
       border-radius: 10px;
       padding: 1rem;
       border: 1px solid #e8e8e8;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
 
     .msg {
@@ -426,29 +435,77 @@
     }
 
     .chat-input-row {
-      display: flex;
-      gap: 8px;
       margin-top: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    .chat-input-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .chat-mock-input {
-      flex: 1;
+      width: 100%;
       border: 1px solid #e5e5e5;
       border-radius: 7px;
-      padding: 9px 12px;
+      padding: 9px 40px 9px 40px;
       font-size: 13px;
-      color: #ccc;
+      color: #333;
       background: #fafafa;
+      outline: none;
+      transition: border-color 0.2s;
+      padding-right: 45px;
     }
 
-    .chat-send-btn {
-      background: #1D9E75;
-      color: #fff;
+    .chat-mock-input:focus {
+      border-color: #1D9E75;
+    }
+
+    .chat-mock-input::placeholder {
+      color: #999;
+    }
+
+    .input-sparkle {
+      position: absolute;
+      left: 12px;
+      color: #1D9E75;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .input-sparkle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .input-send {
+      position: absolute;
+      right: 8px;
+      color: #1D9E75;
+      background: transparent;
       border: none;
-      border-radius: 7px;
-      padding: 9px 16px;
-      font-size: 13px;
+      padding: 6px;
+      border-radius: 4px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .input-send:hover {
+      transform: translateY(-1px);
+      color: #0F6E56;
+    }
+
+    .input-send svg {
+      width: 16px;
+      height: 16px;
     }
 
     /* ── STEPS ── */
@@ -1235,22 +1292,22 @@
           <span style="font-size:12px;color:#ccc;margin-left:8px;">haico.io / workspace</span>
         </div>
         <div class="personas">
-          <div class="persona active">
+          <div class="persona active" data-persona="sandra">
             <div class="av" style="background:#E1F5EE;color:#085041;">SK</div>
             <h4>Sandra K.</h4>
             <span>Einkaufsleiterin, 42</span>
           </div>
-          <div class="persona">
+          <div class="persona" data-persona="markus">
             <div class="av" style="background:#EEEDFE;color:#3C3489;">MR</div>
             <h4>Markus R.</h4>
             <span>Geschäftsführer, 55</span>
           </div>
-          <div class="persona">
+          <div class="persona" data-persona="lena">
             <div class="av" style="background:#FAEEDA;color:#633806;">LP</div>
             <h4>Lena P.</h4>
             <span>Produktmanagerin, 31</span>
           </div>
-          <div class="persona">
+          <div class="persona" data-persona="thomas">
             <div class="av" style="background:#FAECE7;color:#712B13;">TW</div>
             <h4>Thomas W.</h4>
             <span>Vertriebsleiter, 48</span>
@@ -1274,8 +1331,20 @@
               ich überhaupt weiß, was ich bestellen möchte.</div>
           </div>
           <div class="chat-input-row">
-            <div class="chat-mock-input">Frag Sandra etwas...</div>
-            <button class="chat-send-btn">Senden</button>
+            <div class="chat-input-wrapper">
+              <span class="input-sparkle">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L14.5 7.5L20 10L14.5 12.5L12 18L9.5 12.5L4 10L9.5 7.5L12 2Z"></path>
+                </svg>
+              </span>
+              <input type="text" class="chat-mock-input" placeholder="Frag Sandra etwas..." id="chatInput">
+              <button class="input-send" id="sendBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1472,6 +1541,183 @@
     </footer>
 
   </div><!-- /.lp -->
+
+  <script>
+    // Persona data with different chat content
+    const personaData = {
+      sandra: {
+        name: 'Sandra K.',
+        initials: 'SK',
+        color: '#E1F5EE',
+        textColor: '#085041',
+        placeholder: 'Frag Sandra etwas...',
+        messages: [
+          { type: 'ai', text: 'Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.' },
+          { type: 'human', text: 'Was würde dir den Prozess leichter machen?' },
+          { type: 'ai', text: 'Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor ich überhaupt weiß, was ich bestellen möchte.' }
+        ]
+      },
+      markus: {
+        name: 'Markus R.',
+        initials: 'MR',
+        color: '#EEEDFE',
+        textColor: '#3C3489',
+        placeholder: 'Frag Markus etwas...',
+        messages: [
+          { type: 'ai', text: 'Als Geschäftsführer habe ich keine Zeit für lange Einarbeitungen. Ich brauche Lösungen, die sofort funktionieren.' },
+          { type: 'human', text: 'Was ist dir bei neuen Tools am wichtigsten?' },
+          { type: 'ai', text: 'ROI und Zeiteffizienz. Wenn ich nicht innerhalb von 15 Minuten sehe, wie es mir hilft, verliere ich das Interesse.' }
+        ]
+      },
+      lena: {
+        name: 'Lena P.',
+        initials: 'LP',
+        color: '#FAEEDA',
+        textColor: '#633806',
+        placeholder: 'Frag Lena etwas...',
+        messages: [
+          { type: 'ai', text: 'Ich liebe es, neue Features zu entdecken! Aber bitte nicht zu viele auf einmal. Das überfordert mich.' },
+          { type: 'human', text: 'Wie bevorzugst du neue Funktionen zu lernen?' },
+          { type: 'ai', text: 'Am besten durch interaktive Tutorials. Zeig mir, wie es funktioniert, statt mir nur Text zu geben.' }
+        ]
+      },
+      thomas: {
+        name: 'Thomas W.',
+        initials: 'TW',
+        color: '#FAECE7',
+        textColor: '#712B13',
+        placeholder: 'Frag Thomas etwas...',
+        messages: [
+          { type: 'ai', text: 'Mein Team im Vertrieb braucht Tools, die tatsächlich den Verkauf vereinfachen, nicht komplizierter machen.' },
+          { type: 'human', text: 'Was sind die größten Hürden im Vertrieb?' },
+          { type: 'ai', text: 'Dokumentation und Follow-up. Wenn das Tool nicht automatisch hilft, verlieren wir Leads.' }
+        ]
+      }
+    };
+
+    // Get DOM elements
+    const personaCards = document.querySelectorAll('.persona');
+    const chatArea = document.querySelector('.chat-area');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    // Function to update chat content
+    function updateChatContent(personaKey) {
+      const persona = personaData[personaKey];
+
+      // Update input placeholder
+      chatInput.placeholder = persona.placeholder;
+
+      // Clear existing messages except input row
+      const messages = chatArea.querySelectorAll('.msg');
+      messages.forEach(msg => msg.remove());
+
+      // Add new messages
+      persona.messages.forEach(msg => {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `msg ${msg.type === 'human' ? 'user' : ''}`;
+
+        const avDiv = document.createElement('div');
+        avDiv.className = 'av-sm';
+        avDiv.style.background = persona.color;
+        avDiv.style.color = persona.textColor;
+        avDiv.textContent = msg.type === 'human' ? 'Du' : persona.initials;
+
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = `bubble ${msg.type === 'human' ? 'human' : 'ai'}`;
+        bubbleDiv.textContent = msg.text;
+
+        msgDiv.appendChild(avDiv);
+        msgDiv.appendChild(bubbleDiv);
+
+        // Insert before input row
+        const inputRow = document.querySelector('.chat-input-row');
+        chatArea.insertBefore(msgDiv, inputRow);
+      });
+    }
+
+    // Add click event listeners to persona cards
+    personaCards.forEach(card => {
+      card.addEventListener('click', function () {
+        // Remove active class from all cards
+        personaCards.forEach(c => c.classList.remove('active'));
+
+        // Add active class to clicked card
+        this.classList.add('active');
+
+        // Update chat content
+        const personaKey = this.getAttribute('data-persona');
+        updateChatContent(personaKey);
+      });
+    });
+
+    // Add send button functionality
+    sendBtn.addEventListener('click', function () {
+      const message = chatInput.value.trim();
+      if (message) {
+        // Add user message
+        const activePersona = document.querySelector('.persona.active');
+        const personaKey = activePersona.getAttribute('data-persona');
+        const persona = personaData[personaKey];
+
+        const userMsgDiv = document.createElement('div');
+        userMsgDiv.className = 'msg user';
+
+        const userAvDiv = document.createElement('div');
+        userAvDiv.className = 'av-sm';
+        userAvDiv.style.background = '#EEEDFE';
+        userAvDiv.style.color = '#3C3489';
+        userAvDiv.textContent = 'Du';
+
+        const userBubbleDiv = document.createElement('div');
+        userBubbleDiv.className = 'bubble human';
+        userBubbleDiv.textContent = message;
+
+        userMsgDiv.appendChild(userAvDiv);
+        userMsgDiv.appendChild(userBubbleDiv);
+
+        const inputRow = document.querySelector('.chat-input-row');
+        chatArea.insertBefore(userMsgDiv, inputRow);
+
+        // Clear input
+        chatInput.value = '';
+
+        // Simulate AI response after a short delay
+        setTimeout(() => {
+          const aiMsgDiv = document.createElement('div');
+          aiMsgDiv.className = 'msg';
+
+          const aiAvDiv = document.createElement('div');
+          aiAvDiv.className = 'av-sm';
+          aiAvDiv.style.background = persona.color;
+          aiAvDiv.style.color = persona.textColor;
+          aiAvDiv.textContent = persona.initials;
+
+          const aiBubbleDiv = document.createElement('div');
+          aiBubbleDiv.className = 'bubble ai';
+          aiBubbleDiv.textContent = 'Das ist eine interessante Frage. Lass mich darüber nachdenken...';
+
+          aiMsgDiv.appendChild(aiAvDiv);
+          aiMsgDiv.appendChild(aiBubbleDiv);
+
+          chatArea.insertBefore(aiMsgDiv, inputRow);
+
+          // Scroll to bottom
+          chatArea.scrollTop = chatArea.scrollHeight;
+        }, 1000);
+
+        // Scroll to bottom
+        chatArea.scrollTop = chatArea.scrollHeight;
+      }
+    });
+
+    // Add enter key support
+    chatInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        sendBtn.click();
+      }
+    });
+  </script>
 
 </body>
 
