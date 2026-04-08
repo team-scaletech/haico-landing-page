@@ -334,8 +334,7 @@
       display: flex;
       gap: 10px;
       margin-bottom: 1.25rem;
-      overflow-x: auto;
-      padding-bottom: 4px;
+      flex-wrap: wrap;
     }
 
     .persona {
@@ -781,7 +780,7 @@
 
     footer p {
       font-size: 12px;
-      color: #ccc;
+      color: #666;
     }
 
     @media(max-width:640px) {
@@ -876,11 +875,10 @@
 
       .personas {
         gap: 8px;
-        padding-bottom: 8px;
       }
 
       .persona {
-        min-width: 120px;
+        min-width: 140px;
         padding: 0.6rem 0.8rem;
       }
 
@@ -1154,10 +1152,225 @@
         font-size: 20px;
       }
     }
+
+    /* ── ANIMATIONS ── */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-eyebrow {
+      animation: fadeInDown 0.8s ease-out 0.2s both;
+    }
+
+    .hero-h1 {
+      animation: fadeInDown 0.8s ease-out 0.4s both;
+    }
+
+    .hero-sub {
+      animation: fadeInDown 0.8s ease-out 0.6s both;
+    }
+
+    .hero-ctas {
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+    }
+
+    .hero-note {
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+
+    .scroll-hint {
+      animation: bounce 2s infinite 1.5s;
+    }
+
+    .persona {
+      transition: all 0.3s ease;
+    }
+
+    .persona:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .step {
+      transition: all 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .why-card {
+      transition: all 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .btn-primary,
+    .btn-ghost,
+    .btn-nav,
+    .btn-light {
+      transition: all 0.2s ease;
+    }
+
+    .bubble {
+      animation: messageSlide 0.4s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes messageSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .chat-send-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .logo {
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .demo-frame {
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ── CUSTOM SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f8f8f6;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1D9E75;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0F6E56;
+    }
+
+    /* Firefox scrollbar */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #1D9E75 #f8f8f6;
+    }
   </style>
 </head>
 
 <body>
+
+  <script>
+    // Scroll animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Initialize animations when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add animation classes to elements
+      const animatedElements = document.querySelectorAll('.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer');
+      
+      animatedElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+      });
+
+      // Add staggered animation to step cards
+      const stepCards = document.querySelectorAll('.step');
+      stepCards.forEach((step, index) => {
+        step.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Add staggered animation to why cards
+      const whyCards = document.querySelectorAll('.why-card');
+      whyCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Add staggered animation to persona cards
+      const personaCards = document.querySelectorAll('.persona');
+      personaCards.forEach((persona, index) => {
+        persona.style.animationDelay = `${index * 0.1}s`;
+      });
+    });
+  </script>
 
   <!-- ══ HERO WITH VIDEO ══ -->
   <div class="hero-wrap">
