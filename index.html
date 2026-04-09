@@ -88,6 +88,12 @@
       padding: 1.5rem 2.5rem;
     }
 
+    .hero-main{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     .logo {
       display: flex;
       align-items: center;
@@ -126,13 +132,11 @@
     .nav-badge {
       font-size: 11px;
       color: #E1F5EE;
-      background: rgba(29, 158, 117, 0.25);
-      border: 1px solid rgba(93, 202, 165, 0.3);
-      padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(10px);
       font-weight: 500;
       letter-spacing: 0.3px;
+      margin-top: 3px;
     }
 
     .btn-nav {
@@ -1531,9 +1535,10 @@
     <div class="hero-overlay"></div>
 
     <nav class="hero-nav">
-      <a href="#" class="logo">
-        <div class="logo-mark">
-          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+      <div class="hero-main">
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
             <circle cx="7" cy="11" r="4" fill="white" opacity="0.95" />
             <circle cx="15.5" cy="6.5" r="2.8" fill="white" opacity="0.65" />
             <circle cx="15.5" cy="15.5" r="2.8" fill="white" opacity="0.65" />
@@ -1543,8 +1548,10 @@
         </div>
         <span class="logo-text">hai<span>co</span></span>
       </a>
+      <span class="nav-badge">&thinsp;&middot;&thinsp;</span>
+      <span class="nav-badge"> by philoneos</span>
+    </div>
       <div class="nav-right">
-        <span class="nav-badge">by philoneos</span>
         <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
           class="btn-nav">Demo anfragen</a>
       </div>
