@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>haico – Dein Kunde sitzt immer mit am Tisch</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -345,12 +345,15 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       padding: 5px 0;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* Internet Explorer 10+ */
     }
 
     .personas::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
+      display: none;
+      /* Safari and Chrome */
     }
 
     .persona {
@@ -1256,7 +1259,7 @@
 
       /* ── CTA BLOCK MOBILE ── */
       .cta-block {
-        padding:1.5rem;
+        padding: 1.5rem;
         margin-bottom: 3rem;
       }
 
@@ -1515,54 +1518,6 @@
 </head>
 
 <body>
-
-  <script>
-    // Scroll animation observer
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-        } else {
-          entry.target.classList.remove('animated');
-        }
-      });
-    }, observerOptions);
-
-    // Initialize animations when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add animation classes to elements
-      const animatedElements = document.querySelectorAll('.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer');
-
-      animatedElements.forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-      });
-
-      // Add staggered animation to step cards
-      const stepCards = document.querySelectorAll('.step');
-      stepCards.forEach((step, index) => {
-        step.style.animationDelay = `${index * 0.1}s`;
-      });
-
-      // Add staggered animation to why cards
-      const whyCards = document.querySelectorAll('.why-card');
-      whyCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-      });
-
-      // Add staggered animation to persona cards
-      const personaCards = document.querySelectorAll('.persona');
-      personaCards.forEach((persona, index) => {
-        persona.style.animationDelay = `${index * 0.1}s`;
-      });
-    });
-  </script>
-
   <!-- ══ HERO WITH VIDEO ══ -->
   <div class="hero-wrap">
 
@@ -1570,8 +1525,7 @@
 
     <video class="hero-video" autoplay muted loop playsinline preload="none"
       poster="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-poster.jpg">
-      <source
-        src="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-video.mp4"
+      <source src="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-video.mp4"
         type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -1619,7 +1573,8 @@
   <div class="lp">
 
     <div class="proof">
-      <p style="color:#666;">Entwickelt mit führenden Familienunternehmen und Mittelständlern &nbsp;·&nbsp; Akademisch fundiert
+      <p style="color:#666;">Entwickelt mit führenden Familienunternehmen und Mittelständlern &nbsp;·&nbsp; Akademisch
+        fundiert
         &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in Germany</p>
     </div>
 
@@ -1635,7 +1590,7 @@
           <div class="dot" style="background:#f09595;"></div>
           <div class="dot" style="background:#FAC775;"></div>
           <div class="dot" style="background:#9FE1CB;"></div>
-          <span style="font-size:12px;color:#666;margin-left:8px;">haico.io / workspace</span>
+          <span style="font-size:12px;color:#666;margin-left:8px;">haico.digital / workspace</span>
         </div>
         <div class="personas">
           <div class="persona active" data-persona="sandra">
@@ -1900,12 +1855,59 @@
         <span style="font-size:15px;font-weight:400;letter-spacing:-0.3px;color:#1a1a1a;">hai<span
             style="color:#1D9E75;">co</span></span>
       </a>
-      <p style="color:#666;">Ein Produkt der philoneos GmbH, München &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in Germany</p>
+      <p style="color:#666;">Ein Produkt der philoneos GmbH, München &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in
+        Germany</p>
     </footer>
 
   </div><!-- /.lp -->
 
   <script>
+
+    // Scroll animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        } else {
+          entry.target.classList.remove('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Initialize animations when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add animation classes to elements
+      const animatedElements = document.querySelectorAll('.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer');
+
+      animatedElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+      });
+
+      // Add staggered animation to step cards
+      const stepCards = document.querySelectorAll('.step');
+      stepCards.forEach((step, index) => {
+        step.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Add staggered animation to why cards
+      const whyCards = document.querySelectorAll('.why-card');
+      whyCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Add staggered animation to persona cards
+      const personaCards = document.querySelectorAll('.persona');
+      personaCards.forEach((persona, index) => {
+        persona.style.animationDelay = `${index * 0.1}s`;
+      });
+    });
+
     // Persona data with different chat content
     const personaData = {
       sandra: {
@@ -2084,15 +2086,15 @@
     // Auto-scroll clicked persona card to center
     const personasContainer = document.querySelector('.personas');
     if (personasContainer) {
-      personasContainer.addEventListener('click', function(e) {
+      personasContainer.addEventListener('click', function (e) {
         const personaCard = e.target.closest('.persona');
         if (personaCard) {
           const containerRect = personasContainer.getBoundingClientRect();
           const cardRect = personaCard.getBoundingClientRect();
-          
+
           // Calculate the scroll position to center the card
           const scrollLeft = personaCard.offsetLeft - (containerRect.width / 2) + (cardRect.width / 2);
-          
+
           // Smooth scroll to center
           personasContainer.scrollTo({
             left: scrollLeft,
