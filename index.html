@@ -345,6 +345,12 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       padding: 5px 0;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+
+    .personas::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
     }
 
     .persona {
@@ -1039,7 +1045,7 @@
 
       /* ── DEMO MOBILE ── */
       .demo-frame {
-        padding: 1.5rem;
+        padding: 1rem;
         border-radius: 12px;
       }
 
@@ -1309,7 +1315,7 @@
       }
 
       .section h2 {
-        font-size: 16px
+        font-size: 18px
       }
 
       .nature-headline {
@@ -1317,7 +1323,7 @@
       }
 
       .dsgvo-headline {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .cta-block h2 {
@@ -1676,7 +1682,7 @@
                   <path d="M12 2L14.5 7.5L20 10L14.5 12.5L12 18L9.5 12.5L4 10L9.5 7.5L12 2Z"></path>
                 </svg>
               </span>
-              <input type="text" class="chat-mock-input" placeholder="Frag Sandra etwas..." id="chatInput">
+              <input type="text" class="chat-mock-input" placeholder="Stell Sandra eine Frage..." id="chatInput">
               <button class="input-send" id="sendBtn" aria-label="Send message">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
@@ -1907,7 +1913,7 @@
         initials: 'SK',
         color: '#E1F5EE',
         textColor: '#085041',
-        placeholder: 'Frag Sandra etwas...',
+        placeholder: 'Stell Sandra eine Frage...',
         messages: [
           { type: 'ai', text: 'Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.' },
           { type: 'human', text: 'Was würde dir den Prozess leichter machen?' },
@@ -1919,7 +1925,7 @@
         initials: 'MR',
         color: '#EEEDFE',
         textColor: '#3C3489',
-        placeholder: 'Frag Markus etwas...',
+        placeholder: 'Stell Markus eine Frage...',
         messages: [
           { type: 'ai', text: 'Als Geschäftsführer habe ich keine Zeit für lange Einarbeitungen. Ich brauche Lösungen, die sofort funktionieren.' },
           { type: 'human', text: 'Was ist dir bei neuen Tools am wichtigsten?' },
@@ -1931,7 +1937,7 @@
         initials: 'LP',
         color: '#FAEEDA',
         textColor: '#633806',
-        placeholder: 'Frag Lena etwas...',
+        placeholder: 'Stell Lena eine Frage...',
         messages: [
           { type: 'ai', text: 'Ich liebe es, neue Features zu entdecken! Aber bitte nicht zu viele auf einmal. Das überfordert mich.' },
           { type: 'human', text: 'Wie bevorzugst du neue Funktionen zu lernen?' },
@@ -1943,7 +1949,7 @@
         initials: 'TW',
         color: '#FAECE7',
         textColor: '#712B13',
-        placeholder: 'Frag Thomas etwas...',
+        placeholder: 'Stell Thomas eine Frage...',
         messages: [
           { type: 'ai', text: 'Mein Team im Vertrieb braucht Tools, die tatsächlich den Verkauf vereinfachen, nicht komplizierter machen.' },
           { type: 'human', text: 'Was sind die größten Hürden im Vertrieb?' },
@@ -2074,6 +2080,27 @@
         sendBtn.click();
       }
     });
+
+    // Auto-scroll clicked persona card to center
+    const personasContainer = document.querySelector('.personas');
+    if (personasContainer) {
+      personasContainer.addEventListener('click', function(e) {
+        const personaCard = e.target.closest('.persona');
+        if (personaCard) {
+          const containerRect = personasContainer.getBoundingClientRect();
+          const cardRect = personaCard.getBoundingClientRect();
+          
+          // Calculate the scroll position to center the card
+          const scrollLeft = personaCard.offsetLeft - (containerRect.width / 2) + (cardRect.width / 2);
+          
+          // Smooth scroll to center
+          personasContainer.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
   </script>
 
 </body>
