@@ -16,19 +16,18 @@
     content="haico verwandelt deine Kundensegmentierung in gesprächsfähige digitale Personas. KI-gestützt, forschungsbasiert, DSGVO-konform. Ein Produkt von philoneos.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="philoneos GmbH">
-
-  <!-- Open Graph (LinkedIn, WhatsApp, etc.) -->
   <meta property="og:title" content="haico – Dein Kunde sitzt immer mit am Tisch">
   <meta property="og:description"
-    content="Digitale Kundenpersonen, die du jederzeit befragen kannst. KI-gestützt, akademisch fundiert, DSGVO-konform.">
+    content="Deine Kunden, digital und immer verfügbar. KI-gestützt, akademisch fundiert, DSGVO-konform.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://haico.scaletechsolutions.ai">
-  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:url" content="https://haico.digital">
+  <meta property="og:image"
+    content="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/synthia-assets/landing-page/hero-poster.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="haico – Dein Kunde sitzt immer mit am Tisch">
-  <meta name="twitter:description" content="Digitale Kundenpersonen, die du jederzeit befragen kannst.">
+  <meta name="twitter:description" content="Deine Kunden, digital und immer verfügbar.">
 
   <style>
     * {
@@ -49,7 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── HERO WITH VIDEO ── */
+    /* ── HERO ── */
     .hero-wrap {
       position: relative;
       width: 100%;
@@ -241,8 +240,8 @@
     .scroll-hint {
       position: absolute;
       bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 49%;
+      /* transform: translateX(-50%); */
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -339,10 +338,16 @@
       display: flex;
       gap: 10px;
       margin-bottom: 1.25rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 5px 0;
     }
 
     .persona {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
       background: #fff;
       border: 1px solid #e8e8e8;
       border-radius: 10px;
@@ -560,9 +565,11 @@
       padding: 1.4rem 1.5rem;
     }
 
-    .why-card .ic {
-      font-size: 16px;
+    .why-icon {
+      width: 32px;
+      height: 32px;
       margin-bottom: 0.75rem;
+      color: #1D9E75;
     }
 
     .why-card h3 {
@@ -655,6 +662,101 @@
       padding-bottom: 2px;
     }
 
+    /* ── RESEARCH BUNDLE ── */
+    .research-bundle {
+      background: #f8f8f6;
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .research-bundle h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #1a1a1a;
+    }
+
+    .research-bundle .rb-sub {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 1.25rem;
+    }
+
+    .research-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .r-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .r-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #1D9E75;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .r-item p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+
+    .r-item cite {
+      font-size: 11px;
+      color: #aaa;
+      font-style: normal;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nature-ref {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .nature-label {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F6E56;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .nature-ref-text p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+
+    .nature-ref-text cite {
+      font-size: 11px;
+      color: #aaa;
+      font-style: normal;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nature-ref-text a {
+      font-size: 12px;
+      color: #1D9E75;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(29, 158, 117, 0.3);
+    }
+
     /* ── DSGVO BLOCK ── */
     .dsgvo-block {
       display: grid;
@@ -710,9 +812,11 @@
       background: #f0faf6;
     }
 
-    .dsgvo-icon {
-      font-size: 20px;
+    .dsgvo-card-icon {
+      width: 28px;
+      height: 28px;
       flex-shrink: 0;
+      color: #1D9E75;
     }
 
     .dsgvo-card-text h4 {
@@ -837,14 +941,20 @@
 
     footer p {
       font-size: 12px;
-      color: #666;
+      color: #ccc;
+    }
+
+    @media(max-width:768px) {
+
+      .scroll-hint {
+        left: 46%;
+      }
     }
 
     @media(max-width:640px) {
 
-      /* ── HERO MOBILE ── */
-      .hero-wrap {
-        min-height: 500px;
+      .hero-h1 {
+        font-size: 34px;
       }
 
       .hero-nav {
@@ -931,12 +1041,14 @@
       }
 
       .personas {
-        gap: 8px;
+        gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .persona {
-        min-width: 140px;
         padding: 0.6rem 0.8rem;
+        flex-shrink: 0;
       }
 
       .persona .av {
@@ -980,7 +1092,7 @@
 
       .chat-mock-input {
         font-size: 12px;
-        padding: 8px 10px;
+        padding: 8px 10px 8px 35px;
       }
 
       .chat-send-btn {
@@ -1453,7 +1565,6 @@
     </video>
     <div class="hero-overlay"></div>
 
-    <!-- NAV -->
     <nav class="hero-nav">
       <a href="#" class="logo">
         <div class="logo-mark">
@@ -1469,18 +1580,19 @@
       </a>
       <div class="nav-right">
         <span class="nav-badge">by philoneos</span>
-        <a href="mailto:scott.keller@philoneos.com?subject=Haico Inquiry" class="btn-nav">Demo anfragen</a>
+        <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+          class="btn-nav">Demo anfragen</a>
       </div>
     </nav>
 
-    <!-- HERO CONTENT -->
     <div class="hero-content">
       <p class="hero-eyebrow">KI-gestützte Kundensimulation</p>
       <h1 class="hero-h1">Dein Kunde sitzt <em>immer</em> mit am Tisch.</h1>
-      <p class="hero-sub">haico verwandelt deine Kundensegmentierung in gesprächsfähige digitale Personas, die du
-        jederzeit befragen, herausfordern und für Entscheidungen nutzen kannst.</p>
+      <p class="hero-sub">haico verwandelt deine Zielgruppen und Kundensegmente in digitale Personas, die du jederzeit
+        befragen, herausfordern und für Entscheidungen nutzen kannst.</p>
       <div class="hero-ctas">
-        <a href="mailto:scott.keller@philoneos.com?subject=Haico Inquiry" class="btn-primary">Demo anfragen</a>
+        <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+          class="btn-primary">Demo anfragen</a>
         <a href="#plattform" class="btn-ghost">Mehr erfahren</a>
       </div>
       <p class="hero-note">Direkt einsatzbereit nach dem Persona Workshop.</p>
@@ -1495,7 +1607,6 @@
   <!-- ══ PAGE CONTENT ══ -->
   <div class="lp">
 
-    <!-- PROOF BAR -->
     <div class="proof">
       <p>Entwickelt mit führenden Familienunternehmen und Mittelständlern &nbsp;·&nbsp; Akademisch fundiert
         &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in Germany</p>
@@ -1504,9 +1615,9 @@
     <!-- DEMO MOCKUP -->
     <section class="section" id="plattform">
       <p class="section-label">Die Plattform</p>
-      <h2>Deine digitalen Kunden, immer verfügbar.</h2>
+      <h2>Deine Kunden, digital und immer verfügbar.</h2>
       <p class="lead">Nach dem Persona Workshop mit philoneos findest du 3 bis 5 vollständig ausgearbeitete
-        Kundenpersönlichkeiten in deinem haico-Account, bereit zum Gespräch.</p>
+        Kundenpersönlichkeiten in deinem haico-Account, bereit für die nächste Entscheidung.</p>
 
       <div class="demo-frame">
         <div class="demo-topbar">
@@ -1540,8 +1651,7 @@
         <div class="chat-area">
           <div class="msg">
             <div class="av-sm" style="background:#E1F5EE;color:#085041;">SK</div>
-            <div class="bubble ai">Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3
-              verliere ich
+            <div class="bubble ai">Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich
               die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.</div>
           </div>
           <div class="msg user">
@@ -1550,8 +1660,7 @@
           </div>
           <div class="msg">
             <div class="av-sm" style="background:#E1F5EE;color:#085041;">SK</div>
-            <div class="bubble ai">Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine
-              Pflichtfelder, bevor
+            <div class="bubble ai">Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor
               ich überhaupt weiß, was ich bestellen möchte.</div>
           </div>
           <div class="chat-input-row">
@@ -1578,28 +1687,26 @@
     <section class="section">
       <p class="section-label">So funktioniert's</p>
       <h2>Vom Workshop zur digitalen Kundenstimme.</h2>
-      <p class="lead">haico verbindet strukturierte Workshops mit KI-Technologie zu einem schlanken,
-        wiederholbaren
+      <p class="lead">haico verbindet strukturierte Workshops mit KI-Technologie zu einem schlanken, wiederholbaren
         Prozess.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <h3>Persona Workshop</h3>
-          <p>Gemeinsam mit philoneos erarbeiten wir deine Kundensegmentierung, Bedürfnisse, Sprachmuster und
-            Entscheidungslogiken.</p>
+          <p>Gemeinsam mit philoneos definieren wir deine relevanten Zielgruppen und schaffen die Datenbasis für dein
+            KI-gestütztes Persona-Tool.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <h3>Digitaler Aufbau</h3>
-          <p>Wir übersetzen die Workshop-Erkenntnisse in 3 bis 5 trainierte, gesprächsfähige
-            Kundenpersönlichkeiten auf
+          <p>Wir übersetzen die Workshop-Erkenntnisse in 3 bis 5 trainierte, gesprächsfähige Kundenpersönlichkeiten auf
             der haico-Plattform.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <h3>Jederzeit abrufbar</h3>
-          <p>Dein Team chattet, testet Ideen und holt Feedback ein, wann immer es die Kundenperspektive
-            braucht.</p>
+          <p>Dein Team holt sich die Kundenperspektive für Kampagnen, Konzepte oder schnelle Checks direkt und ohne
+            Warten auf Studien und Befragungen.</p>
         </div>
       </div>
     </section>
@@ -1608,107 +1715,73 @@
     <section class="section">
       <p class="section-label">Warum haico</p>
       <h2>Kein Rätselraten mehr, was der Kunde denkt.</h2>
-      <p class="lead">Customer Centricity scheitert oft nicht am Willen, sondern am Zugang. haico löst das
-        strukturell.
+      <p class="lead">Customer Centricity scheitert oft nicht am Willen, sondern am Zugang. haico löst das strukturell.
       </p>
       <div class="why-grid">
+
         <div class="why-card">
-          <div class="ic">&#128483;</div>
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+            <circle cx="19" cy="8" r="3" />
+            <path d="M22 18c0-2.5-1.8-4.5-4-5" />
+          </svg>
           <h3>Kundenperspektive ohne Terminabstimmung</h3>
-          <p>Kein Recruiting, keine NDA, kein Warten. Dein digitaler Kunde ist sofort gesprächsbereit, auch um
-            Mitternacht vor dem Pitch.</p>
+          <p>Kein Recruiting, keine NDA, kein Warten auf Feedback-Runden. Deine digitale Zielgruppe ist sofort
+            gesprächsbereit, genau dann wenn du sie brauchst.</p>
         </div>
+
         <div class="why-card">
-          <div class="ic">&#128200;</div>
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
           <h3>Forschungsbasiert und valide</h3>
-          <p>Synthetische Kundendaten aus Sprachmodellen können menschliches Verhalten in
-            Befragungssituationen
-            zuverlässig abbilden.</p>
-          <cite>Argyle et al. (2023), Political Analysis, 31(3). DOI: 10.1017/pan.2023.2</cite>
+          <p>Synthetische Kundendaten aus Sprachmodellen können menschliches Verhalten in Befragungssituationen
+            zuverlässig abbilden, belegt durch peer-reviewte Forschung.</p>
+          <cite>Argyle et al. (2023), Political Analysis. Brand et al. (2024), Harvard Business School.</cite>
         </div>
+
         <div class="why-card">
-          <div class="ic">&#127919;</div>
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg>
           <h3>Immer ein Platz am Meetingtisch</h3>
-          <p>Produktentscheidungen, Kampagnenkonzepte, Serviceprozesse: Hole dir vor jedem Beschluss eine
-            echte
+          <p>Produktentscheidungen, Kampagnenkonzepte, Serviceprozesse: Hole dir vor jedem Beschluss eine echte
             Kundenstimme in den Raum.</p>
         </div>
+
         <div class="why-card">
-          <div class="ic">&#128301;</div>
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
           <h3>Qualität durch Struktur</h3>
-          <p>Die Güte einer digitalen Persona steht und fällt mit der Tiefe der Segmentierung. Deshalb startet
-            haico
+          <p>Die Güte einer digitalen Persona steht und fällt mit der Tiefe der Segmentierung. Deshalb startet haico
             immer mit einem professionellen Workshop.</p>
         </div>
+
       </div>
     </section>
 
-    <!-- NATURE BLOCK -->
-    <div class="nature-block">
-      <div class="nature-badge">
-        <span class="nb-journal">nature</span>
-        <span class="nb-tag">Peer-reviewed · Juli 2025</span>
-      </div>
-      <h2 class="nature-headline">Menschliches Verhalten ist berechenbar.</h2>
-      <p class="nature-body">Das Helmholtz Center München veröffentlichte im Juli 2025 in <em>Nature</em> das
-        Modell
-        <strong>Centaur</strong>: trainiert auf über 10 Millionen menschlichen Entscheidungen in 160
-        psychologischen
-        Experimenten. Das Ergebnis ist eindeutig: KI kann menschliches Verhalten nicht nur imitieren, sondern
-        vorhersagen, auch in Situationen, die es nie zuvor gesehen hat.
-      </p>
-      <p class="nature-body">haico überträgt genau diesen Grundlagengedanken auf die Kundenbeziehung: Was
-        Wissenschaftler im Labor beweisen, nutzen wir im Boardroom.</p>
-      <a class="nature-link" href="https://www.nature.com/articles/s41586-025-09215-4" target="_blank"
-        rel="noopener">Zur Originalpublikation in Nature ↗</a>
-    </div>
-
-    <!-- DSGVO BLOCK -->
-    <div class="dsgvo-block">
-      <div class="dsgvo-left">
-        <p class="section-label">Datensouveränität</p>
-        <h2 class="dsgvo-headline">KI made in Europe.<br>Daten bleiben in Europa.</h2>
-        <p class="dsgvo-body">haico basiert auf Mistral, dem führenden europäischen Open-Source-Sprachmodell aus
-          Frankreich. Betrieben auf Servern innerhalb der EU.</p>
-        <p class="dsgvo-body"><strong>Kein Datentransfer in die USA. Keine Abhängigkeit von amerikanischen
-            Hyperscalern.</strong> Volle Kontrolle. Volle Compliance.</p>
-      </div>
-      <div class="dsgvo-right">
-        <div class="dsgvo-card">
-          <div class="dsgvo-icon">&#127466;&#127482;</div>
-          <div class="dsgvo-card-text">
-            <h4>Europäische KI-Basis</h4>
-            <p>Mistral AI, Paris</p>
-          </div>
-        </div>
-        <div class="dsgvo-card">
-          <div class="dsgvo-icon">&#127968;</div>
-          <div class="dsgvo-card-text">
-            <h4>EU-Hosting</h4>
-            <p>Server innerhalb der EU</p>
-          </div>
-        </div>
-        <div class="dsgvo-card dsgvo-card-accent">
-          <div class="dsgvo-icon">&#9989;</div>
-          <div class="dsgvo-card-text">
-            <h4>DSGVO-konform by design</h4>
-            <p>Nicht nachgerüstet. Von Anfang an.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RESEARCH -->
-    <div class="research">
-      <h3>Weitere Forschung dahinter</h3>
+    <!-- RESEARCH BUNDLE -->
+    <div class="research-bundle">
+      <h3>Die Forschung dahinter</h3>
+      <p class="rb-sub">Dass KI menschliches Verhalten simulieren kann, ist keine Behauptung, sondern ein
+        forschungsbasierter Befund. Hier die wichtigsten Quellen.</p>
       <div class="research-items">
         <div class="r-item">
           <div class="r-dot"></div>
           <div>
-            <p>Große Sprachmodelle können demographisch definierte Bevölkerungsgruppen so verlässlich
-              simulieren, dass
-              ihre Antworten mit echten Umfragedaten übereinstimmen. Schlüssel: präzises Conditioning auf
-              soziodemographische Profile.</p>
+            <p>Große Sprachmodelle können demographisch definierte Bevölkerungsgruppen so verlässlich simulieren, dass
+              ihre Antworten mit echten Umfragedaten übereinstimmen.</p>
             <cite>Argyle, L.P. et al. (2023). Out of One, Many. Political Analysis, 31(3), 337–351. DOI:
               10.1017/pan.2023.2</cite>
           </div>
@@ -1716,23 +1789,78 @@
         <div class="r-item">
           <div class="r-dot"></div>
           <div>
-            <p>LLM-basierte Conjoint-Analysen liefern Ergebnisse, die realen Konsumentenbefragungen
-              bemerkenswert
+            <p>LLM-basierte Conjoint-Analysen liefern Ergebnisse, die realen Konsumentenbefragungen bemerkenswert
               ähnlich sind, zu einem Bruchteil der Kosten und Zeit.</p>
-            <cite>Brand, J., Israeli, A. & Ngwe, D. (2024). Using LLMs for Market Research. Harvard Business
-              School
+            <cite>Brand, J., Israeli, A. & Ngwe, D. (2024). Using LLMs for Market Research. Harvard Business School
               Working Paper 23-062.</cite>
           </div>
         </div>
         <div class="r-item">
           <div class="r-dot"></div>
           <div>
-            <p>Synthetische LLM-Daten können reale Nutzerbefragungen im Früh-Screening neuer Produktideen
-              valide
+            <p>Synthetische LLM-Daten können reale Nutzerbefragungen im Früh-Screening neuer Produktideen valide
               ergänzen und erheblich Kosten reduzieren.</p>
-            <cite>Hämäläinen, P. et al. (2023). Evaluating LLMs in Generating Synthetic HCI Research Data.
-              CHI '23. DOI:
+            <cite>Hämäläinen, P. et al. (2023). Evaluating LLMs in Generating Synthetic HCI Research Data. CHI '23. DOI:
               10.1145/3544548.3580688</cite>
+          </div>
+        </div>
+        <div class="nature-ref">
+          <span class="nature-label">nature</span>
+          <div class="nature-ref-text">
+            <p>Das Helmholtz Center München zeigte 2025 in <em>Nature</em>, dass KI menschliches Verhalten nicht nur
+              imitieren, sondern in neuen, unbekannten Situationen vorhersagen kann, trainiert auf über 10 Millionen
+              menschlichen Entscheidungen in 160 Experimenten.</p>
+            <cite>Binz, M. et al. (2025). A foundation model to predict and capture human cognition. Nature, 644(8078),
+              1002–1009.</cite>
+            <a href="https://www.nature.com/articles/s41586-025-09215-4" target="_blank" rel="noopener">Zur
+              Originalpublikation ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DSGVO BLOCK -->
+    <div class="dsgvo-block">
+      <div>
+        <p class="section-label">Datensouveränität</p>
+        <h2 class="dsgvo-headline">KI made in Europe.<br>Daten bleiben in Europa.</h2>
+        <p class="dsgvo-body">haico basiert auf Mistral, dem führenden europäischen Open-Source-Sprachmodell aus
+          Frankreich. Betrieben auf Servern innerhalb der EU.</p>
+        <p class="dsgvo-body"><strong>Kein Datentransfer in die USA. Keine Abhängigkeit von amerikanischen
+            Hyperscalern.</strong> Eure Daten werden zu keinem Zeitpunkt zum Training des Modells verwendet.</p>
+      </div>
+      <div class="dsgvo-right">
+        <div class="dsgvo-card">
+          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
+          </svg>
+          <div class="dsgvo-card-text">
+            <h4>Europäische KI-Basis</h4>
+            <p>Mistral AI, Paris</p>
+          </div>
+        </div>
+        <div class="dsgvo-card">
+          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+          <div class="dsgvo-card-text">
+            <h4>EU-Hosting</h4>
+            <p>Server innerhalb der EU</p>
+          </div>
+        </div>
+        <div class="dsgvo-card">
+          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <polyline points="9 12 11 14 15 10" />
+          </svg>
+          <div class="dsgvo-card-text">
+            <h4>DSGVO-konform by design</h4>
+            <p>Keine Trainingsdaten aus euren Inhalten.</p>
           </div>
         </div>
       </div>
@@ -1742,12 +1870,10 @@
     <div class="cta-block">
       <h2>Bereit, deinen Kunden kennenzulernen?</h2>
       <p>Starte mit einem kostenlosen Erstgespräch. Wir zeigen dir, wie haico in deinem Kontext funktioniert.</p>
-      <a href="mailto:scott.keller@philoneos.com?subject=Haico Inquiry" class="btn-light">Erstgespräch
-        vereinbaren</a>
-      <p class="cta-sub">30 Minuten. Kein Pitch, nur Substanz.</p>
+      <a href="mailto:scott.keller@philoneos.com?subject=Erstgespr%C3%A4ch%20haico&body=Hallo%20Scott%2C%0A%0Aich%20w%C3%BCrde%20gerne%20ein%20Erstgespr%C3%A4ch%20zu%20haico%20vereinbaren.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+        class="btn-light">Erstgespräch vereinbaren</a>
     </div>
 
-    <!-- FOOTER -->
     <footer>
       <a href="#" class="logo" style="text-decoration:none;">
         <div class="logo-mark"
