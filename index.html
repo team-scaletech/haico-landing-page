@@ -9,6 +9,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+
   <!-- SEO -->
   <title>haico – Dein Kunde sitzt immer mit am Tisch</title>
   <meta name="description"
@@ -42,7 +48,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CG8VLJZQVS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-CG8VLJZQVS');
   </script>
@@ -58,8 +64,37 @@
       scroll-behavior: smooth;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    nav,
+    button,
+    .btn-primary,
+    .btn-ghost,
+    .btn-nav,
+    .hero-eyebrow,
+    .nav-badge,
+    .logo-text {
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 700;
+    }
+
+    h4,
+    h5,
+    h6 {
+      font-weight: 500;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+      font-family: 'IBM Plex Sans', Georgia, serif;
       background: #fff;
       color: #1a1a1a;
       line-height: 1.6;
@@ -107,7 +142,7 @@
       padding: 1.5rem 2.5rem;
     }
 
-    .hero-main{
+    .hero-main {
       display: flex;
       align-items: center;
       gap: 5px;
@@ -120,10 +155,16 @@
       text-decoration: none;
     }
 
+    .logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
     .logo-mark {
       width: 34px;
       height: 34px;
-      background: #1D9E75;
+      background: #F4F887;
       border-radius: 7px;
       display: flex;
       align-items: center;
@@ -139,7 +180,7 @@
     }
 
     .logo-text span {
-      color: #5DCAA5;
+      color: #F4F887;
     }
 
     .nav-right {
@@ -150,7 +191,7 @@
 
     .nav-badge {
       font-size: 11px;
-      color: #E1F5EE;
+      color: #F4F887;
       border-radius: 20px;
       backdrop-filter: blur(10px);
       font-weight: 500;
@@ -172,6 +213,7 @@
 
     .btn-nav:hover {
       background: rgba(255, 255, 255, 0.25);
+
     }
 
     .hero-content {
@@ -201,7 +243,7 @@
     }
 
     .hero-h1 em {
-      color: #5DCAA5;
+      color: #F4F887;
       font-style: normal;
       font-weight: 400;
     }
@@ -224,8 +266,8 @@
     }
 
     .btn-primary {
-      background: #1D9E75;
-      color: #fff;
+      background: #F4F887;
+      color: #222222;
       border: none;
       border-radius: 7px;
       padding: 14px 30px;
@@ -237,7 +279,7 @@
     }
 
     .btn-primary:hover {
-      background: #0F6E56;
+      background: #f4f887;
     }
 
     .btn-ghost {
@@ -276,7 +318,7 @@
 
     .scroll-hint span {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.4);
+      color: #f4f887a8;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -284,7 +326,7 @@
     .scroll-line {
       width: 1px;
       height: 40px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+      background: linear-gradient(to bottom, #f4f887a8, transparent);
     }
 
     /* ── LAYOUT ── */
@@ -317,7 +359,7 @@
     .section-label {
       font-size: 11px;
       font-weight: 500;
-      color: #0F6E56;
+      color: #222222;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 0.5rem;
@@ -340,7 +382,7 @@
 
     /* ── DEMO MOCKUP ── */
     .demo-frame {
-      background: #f5f5f3;
+      background: #CDDCDE;
       border-radius: 16px;
       padding: 1.5rem;
       border: 1px solid #e8e8e8;
@@ -392,7 +434,7 @@
     }
 
     .persona.active {
-      border-color: #1D9E75;
+      border-color: #F4F887;
       border-width: 1.5px;
     }
 
@@ -456,8 +498,8 @@
     }
 
     .bubble.human {
-      background: #1D9E75;
-      color: #fff;
+      background: #F4F887;
+      color: #222222;
       border-radius: 12px 4px 12px 12px;
     }
 
@@ -499,7 +541,7 @@
     }
 
     .chat-mock-input:focus {
-      border-color: #1D9E75;
+      border-color: #F4F887;
     }
 
     .chat-mock-input::placeholder {
@@ -509,7 +551,7 @@
     .input-sparkle {
       position: absolute;
       left: 12px;
-      color: #1D9E75;
+      color: #F4F887;
       pointer-events: none;
       display: flex;
       align-items: center;
@@ -525,7 +567,7 @@
     .input-send {
       position: absolute;
       right: 8px;
-      color: #1D9E75;
+      color: #F4F887;
       background: transparent;
       border: none;
       padding: 6px;
@@ -555,7 +597,7 @@
     }
 
     .step {
-      background: #f8f8f6;
+      background: #CDDCDE;
       border-radius: 12px;
       padding: 1.25rem;
     }
@@ -563,8 +605,8 @@
     .step-num {
       font-size: 11px;
       font-weight: 500;
-      color: #0F6E56;
-      background: #E1F5EE;
+      color: #F4F887;
+      background: #222222;
       width: 22px;
       height: 22px;
       border-radius: 50%;
@@ -594,7 +636,7 @@
     }
 
     .why-card {
-      background: #fff;
+      background: #CDDCDE;
       border: 1px solid #ebebeb;
       border-radius: 12px;
       padding: 1.4rem 1.5rem;
@@ -604,7 +646,7 @@
       width: 32px;
       height: 32px;
       margin-bottom: 0.75rem;
-      color: #1D9E75;
+      color: #F4F887;
     }
 
     .why-card h3 {
@@ -622,17 +664,17 @@
     .why-card cite {
       display: block;
       font-size: 11px;
-      color: #bbb;
+      color: #222222;
       margin-top: 0.6rem;
       font-style: normal;
-      border-left: 2px solid #9FE1CB;
+      border-left: 2px solid #F4F887;
       padding-left: 8px;
       line-height: 1.5;
     }
 
     /* ── NATURE BLOCK ── */
     .nature-block {
-      background: #04342C;
+      background: #F4F887;
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 2.5rem;
@@ -646,7 +688,7 @@
     }
 
     .nb-journal {
-      font-family: Georgia, serif;
+      font-family: 'IBM Plex Sans', sans-serif;
       font-size: 18px;
       font-weight: 700;
       color: #9FE1CB;
@@ -655,7 +697,7 @@
 
     .nb-tag {
       font-size: 12px;
-      color: #5DCAA5;
+      color: #F4F887;
       background: rgba(29, 158, 117, 0.2);
       padding: 3px 10px;
       border-radius: 20px;
@@ -664,7 +706,7 @@
     .nature-headline {
       font-size: 26px;
       font-weight: 400;
-      color: #E1F5EE;
+      color: #F4F887;
       letter-spacing: -0.5px;
       margin-bottom: 0.9rem;
       line-height: 1.25;
@@ -678,12 +720,12 @@
     }
 
     .nature-body em {
-      color: #E1F5EE;
+      color: #F4F887;
       font-style: italic;
     }
 
     .nature-body strong {
-      color: #E1F5EE;
+      color: #F4F887;
       font-weight: 500;
     }
 
@@ -691,7 +733,7 @@
       display: inline-block;
       margin-top: 0.75rem;
       font-size: 13px;
-      color: #5DCAA5;
+      color: #F4F887;
       text-decoration: none;
       border-bottom: 1px solid rgba(93, 202, 165, 0.4);
       padding-bottom: 2px;
@@ -699,7 +741,7 @@
 
     /* ── RESEARCH BUNDLE ── */
     .research-bundle {
-      background: #f8f8f6;
+      background: #CDDCDE;
       border-radius: 14px;
       padding: 1.5rem;
       margin-bottom: 4.5rem;
@@ -734,7 +776,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #1D9E75;
+      background: #222222;
       margin-top: 8px;
       flex-shrink: 0;
     }
@@ -763,10 +805,10 @@
     }
 
     .nature-label {
-      font-family: Georgia, serif;
+      font-family: 'IBM Plex Sans', sans-serif;
       font-size: 13px;
       font-weight: 700;
-      color: #0F6E56;
+      color: #222222;
       flex-shrink: 0;
       padding-top: 2px;
     }
@@ -787,7 +829,7 @@
 
     .nature-ref-text a {
       font-size: 12px;
-      color: #1D9E75;
+      color: #222222;
       text-decoration: none;
       border-bottom: 1px solid rgba(29, 158, 117, 0.3);
     }
@@ -800,7 +842,7 @@
       align-items: center;
       margin-bottom: 4.5rem;
       padding: 1.5rem;
-      background: #f8f8f6;
+      background: #CDDCDE;
       border-radius: 16px;
       border: 1px solid #ebebeb;
     }
@@ -842,7 +884,7 @@
     }
 
     .dsgvo-card-accent {
-      border-color: #1D9E75;
+      border-color: #F4F887;
       border-width: 1.5px;
       background: #f0faf6;
     }
@@ -851,7 +893,7 @@
       width: 28px;
       height: 28px;
       flex-shrink: 0;
-      color: #1D9E75;
+      color: #F4F887;
     }
 
     .dsgvo-card-text h4 {
@@ -896,7 +938,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #1D9E75;
+      background: #222222;
       margin-top: 8px;
       flex-shrink: 0;
     }
@@ -917,7 +959,7 @@
 
     /* ── CTA BLOCK ── */
     .cta-block {
-      background: #085041;
+      background: #F4F887;
       border-radius: 16px;
       padding: 1.5rem;
       text-align: center;
@@ -927,21 +969,21 @@
     .cta-block h2 {
       font-size: 28px;
       font-weight: 400;
-      color: #E1F5EE;
+      color: #222222;
       letter-spacing: -0.4px;
       margin-bottom: 0.75rem;
     }
 
     .cta-block p {
       font-size: 16px;
-      color: #9FE1CB;
+      color: #222222;
       margin-bottom: 2rem;
       line-height: 1.65;
     }
 
     .btn-light {
       background: #fff;
-      color: #085041;
+      color: #222222;
       border: none;
       border-radius: 7px;
       padding: 14px 30px;
@@ -950,15 +992,17 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
+      border: 1px solid transparent;
     }
 
     .btn-light:hover {
-      background: #E1F5EE;
+      background: #F4F887;
+      border: 1px solid white;
     }
 
     .cta-sub {
       font-size: 13px;
-      color: #5DCAA5;
+      color: #F4F887;
       margin-top: 1rem;
     }
 
@@ -1518,7 +1562,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #1D9E75;
+      background: #F4F887;
       border-radius: 4px;
       transition: background 0.3s ease;
     }
@@ -1530,7 +1574,7 @@
     /* Firefox scrollbar */
     * {
       scrollbar-width: thin;
-      scrollbar-color: #1D9E75 #f8f8f6;
+      scrollbar-color: #F4F887 #f8f8f6;
     }
   </style>
 </head>
@@ -1551,20 +1595,11 @@
     <nav class="hero-nav">
       <div class="hero-main">
         <a href="#" class="logo">
-          <div class="logo-mark">
-            <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-            <circle cx="7" cy="11" r="4" fill="white" opacity="0.95" />
-            <circle cx="15.5" cy="6.5" r="2.8" fill="white" opacity="0.65" />
-            <circle cx="15.5" cy="15.5" r="2.8" fill="white" opacity="0.65" />
-            <line x1="11" y1="11" x2="13" y2="7.5" stroke="white" stroke-width="1.2" opacity="0.5" />
-            <line x1="11" y1="11" x2="13" y2="14.5" stroke="white" stroke-width="1.2" opacity="0.5" />
-          </svg>
-        </div>
-        <span class="logo-text">hai<span>co</span></span>
-      </a>
-      <span class="nav-badge">&thinsp;&middot;&thinsp;</span>
-      <span class="nav-badge"> by philoneos</span>
-    </div>
+          <img src="assets/images/logo.png" alt="haico logo" class="logo-img" />
+        </a>
+        <!-- <span class="nav-badge">&thinsp;&middot;&thinsp;</span>
+        <span class="nav-badge"> by philoneos</span> -->
+      </div>
       <div class="nav-right">
         <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
           class="btn-nav">Demo anfragen</a>
@@ -1615,7 +1650,7 @@
         </div>
         <div class="personas">
           <div class="persona active" data-persona="sandra">
-            <div class="av" style="background:#E1F5EE;color:#085041;">SK</div>
+            <div class="av" style="background:#F4F887;color:#222222;">SK</div>
             <h4>Sandra K.</h4>
             <span>Einkaufsleiterin, 42</span>
           </div>
@@ -1637,7 +1672,7 @@
         </div>
         <div class="chat-area">
           <div class="msg">
-            <div class="av-sm" style="background:#E1F5EE;color:#085041;">SK</div>
+            <div class="av-sm" style="background:#F4F887;color:#222222;">SK</div>
             <div class="bubble ai">Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich
               die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.</div>
           </div>
@@ -1646,7 +1681,7 @@
             <div class="bubble human">Was würde dir den Prozess leichter machen?</div>
           </div>
           <div class="msg">
-            <div class="av-sm" style="background:#E1F5EE;color:#085041;">SK</div>
+            <div class="av-sm" style="background:#F4F887;color:#222222;">SK</div>
             <div class="bubble ai">Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor
               ich überhaupt weiß, was ich bestellen möchte.</div>
           </div>
@@ -1863,18 +1898,7 @@
 
     <footer>
       <a href="#" class="logo" style="text-decoration:none;">
-        <div class="logo-mark"
-          style="width:26px;height:26px;background:#1D9E75;border-radius:6px;display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
-            <circle cx="7" cy="11" r="4" fill="white" opacity="0.95" />
-            <circle cx="15.5" cy="6.5" r="2.8" fill="white" opacity="0.65" />
-            <circle cx="15.5" cy="15.5" r="2.8" fill="white" opacity="0.65" />
-            <line x1="11" y1="11" x2="13" y2="7.5" stroke="white" stroke-width="1.2" opacity="0.5" />
-            <line x1="11" y1="11" x2="13" y2="14.5" stroke="white" stroke-width="1.2" opacity="0.5" />
-          </svg>
-        </div>
-        <span style="font-size:15px;font-weight:400;letter-spacing:-0.3px;color:#1a1a1a;">hai<span
-            style="color:#1D9E75;">co</span></span>
+        <img src="assets/images/footer-logo.png" alt="haico logo" style="height:32px;width:auto;display:block;" />
       </a>
       <p style="color:#666;">Ein Produkt der philoneos GmbH, München &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in
         Germany</p>
@@ -1934,8 +1958,8 @@
       sandra: {
         name: 'Sandra K.',
         initials: 'SK',
-        color: '#E1F5EE',
-        textColor: '#085041',
+        color: '#F4F887',
+        textColor: '#222222',
         placeholder: 'Stell Sandra eine Frage...',
         messages: [
           { type: 'ai', text: 'Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.' },
