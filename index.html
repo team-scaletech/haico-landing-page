@@ -1,2155 +1,2491 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-    rel="stylesheet">
-
-  <!-- SEO -->
-  <title>haico – Dein Kunde sitzt immer mit am Tisch</title>
-  <meta name="description"
-    content="haico verwandelt deine Kundensegmentierung in gesprächsfähige digitale Personas. KI-gestützt, forschungsbasiert, DSGVO-konform. Ein Produkt von philoneos.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="philoneos GmbH">
-  <meta property="og:title" content="haico – Dein Kunde sitzt immer mit am Tisch">
-  <meta property="og:description"
-    content="Deine Kunden, digital und immer verfügbar. KI-gestützt, akademisch fundiert, DSGVO-konform.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://haico.digital">
-  <meta property="og:image" content="https://haico.digital/assets/og-image.jpg">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://haico.digital">
-
-  <!-- Open Graph extras -->
-  <meta property="og:locale" content="de_DE">
-  <meta property="og:site_name" content="haico">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="haico – Dein Kunde sitzt immer mit am Tisch">
-  <meta name="twitter:description" content="Deine Kunden, digital und immer verfügbar.">
-  <meta name="twitter:image" content="https://haico.digital/assets/og-image.jpg">
-
-  <!-- Theme color -->
-  <meta name="theme-color" content="#0A0A0F">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CG8VLJZQVS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-CG8VLJZQVS');
-  </script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    nav,
-    button,
-    .btn-primary,
-    .btn-ghost,
-    .btn-nav,
-    .hero-eyebrow,
-    .nav-badge,
-    .logo-text {
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-weight: 700;
-    }
-
-    h4,
-    h5,
-    h6 {
-      font-weight: 500;
-    }
-
-    body {
-      font-family: 'IBM Plex Sans', Georgia, serif;
-      background: #fff;
-      color: #1a1a1a;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── HERO ── */
-    .hero-wrap {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 600px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.7) 100%);
-      z-index: 1;
-    }
-
-    .hero-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem 2.5rem;
-    }
-
-    .hero-main {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-img {
-      height: 36px;
-      width: auto;
-      display: block;
-    }
-
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      background: #F4F887;
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo-text {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: -0.5px;
-      color: #fff;
-    }
-
-    .logo-text span {
-      color: #F4F887;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-badge {
-      font-size: 11px;
-      color: #F4F887;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      margin-top: 3px;
-    }
-
-    .btn-nav {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 7px;
-      padding: 9px 20px;
-      font-size: 14px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      text-decoration: none;
-    }
-
-    .btn-nav:hover {
-      background: rgba(255, 255, 255, 0.25);
-
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 0 1.5rem;
-      max-width: 780px;
-    }
-
-    .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.65);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-h1 {
-      font-size: 56px;
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      color: #fff;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-h1 em {
-      color: #F4F887;
-      font-style: normal;
-      font-weight: 400;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.65;
-      max-width: 520px;
-      margin: 0 auto 2.25rem;
-      font-weight: 300;
-    }
-
-    .hero-ctas {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: #F4F887;
-      color: #222222;
-      border: none;
-      border-radius: 7px;
-      padding: 14px 30px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-primary:hover {
-      background: #f4f887;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 7px;
-      padding: 14px 30px;
-      font-size: 15px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-note {
-      font-size: 13px;
-      color: #fff;
-      margin-top: 1rem;
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 49%;
-      /* transform: translateX(-50%); */
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .scroll-hint span {
-      font-size: 11px;
-      color: #f4f887a8;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, #f4f887a8, transparent);
-    }
-
-    /* ── LAYOUT ── */
-    .lp {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── PROOF BAR ── */
-    .proof {
-      border-bottom: 1px solid #f0f0f0;
-      padding: 1.5rem;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .proof p {
-      font-size: 13px;
-      color: #aaa;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      margin-bottom: 4.5rem;
-      padding: 1.5rem;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      color: #222222;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-
-    .section h2 {
-      font-size: 30px;
-      font-weight: 400;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.75rem;
-    }
-
-    .lead {
-      font-size: 16px;
-      color: #666;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    /* ── DEMO MOCKUP ── */
-    .demo-frame {
-      background: #CDDCDE;
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid #e8e8e8;
-      margin-bottom: 2rem;
-    }
-
-    .demo-topbar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 1.25rem;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
-
-    .personas {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 1.25rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 5px 0;
-      scrollbar-width: none;
-      /* Firefox */
-      -ms-overflow-style: none;
-      /* Internet Explorer 10+ */
-    }
-
-    .personas::-webkit-scrollbar {
-      display: none;
-      /* Safari and Chrome */
-    }
-
-    .persona {
-      flex: 1;
-      min-width: 0;
-      text-align: center;
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      padding: 0.8rem 1rem;
-      min-width: 148px;
-      cursor: pointer;
-    }
-
-    .persona.active {
-      border-color: #F4F887;
-      border-width: 1.5px;
-    }
-
-    .persona .av {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .persona h4 {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .persona span {
-      font-size: 11px;
-      color: #999;
-    }
-
-    .chat-area {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      border: 1px solid #e8e8e8;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .msg {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 0.8rem;
-      align-items: flex-start;
-    }
-
-    .msg.user {
-      flex-direction: row-reverse;
-    }
-
-    .bubble {
-      font-size: 13px;
-      line-height: 1.55;
-      padding: 9px 13px;
-      border-radius: 12px;
-      max-width: 76%;
-    }
-
-    .bubble.ai {
-      background: #f5f5f3;
-      color: #1a1a1a;
-      border-radius: 4px 12px 12px 12px;
-    }
-
-    .bubble.human {
-      background: #F4F887;
-      color: #222222;
-      border-radius: 12px 4px 12px 12px;
-    }
-
-    .av-sm {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .chat-input-row {
-      margin-top: 0.8rem;
-      margin-bottom: 0;
-    }
-
-    .chat-input-wrapper {
-      flex: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .chat-mock-input {
-      width: 100%;
-      border: 1px solid #e5e5e5;
-      border-radius: 7px;
-      padding: 9px 40px 9px 40px;
-      font-size: 13px;
-      color: #333;
-      background: #fafafa;
-      outline: none;
-      transition: border-color 0.2s;
-      padding-right: 45px;
-    }
-
-    .chat-mock-input:focus {
-      border-color: #F4F887;
-    }
-
-    .chat-mock-input::placeholder {
-      color: #999;
-    }
-
-    .input-sparkle {
-      position: absolute;
-      left: 12px;
-      color: #F4F887;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.7;
-    }
-
-    .input-sparkle svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .input-send {
-      position: absolute;
-      right: 8px;
-      color: #F4F887;
-      background: transparent;
-      border: none;
-      padding: 6px;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .input-send:hover {
-      transform: translateY(-1px);
-      color: #0F6E56;
-    }
-
-    .input-send svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* ── STEPS ── */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .step {
-      background: #CDDCDE;
-      border-radius: 12px;
-      padding: 1.25rem;
-    }
-
-    .step-num {
-      font-size: 11px;
-      font-weight: 500;
-      color: #F4F887;
-      background: #222222;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .step h3 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    .step p {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.55;
-    }
-
-    /* ── WHY CARDS ── */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .why-card {
-      background: #CDDCDE;
-      border: 1px solid #ebebeb;
-      border-radius: 12px;
-      padding: 1.4rem 1.5rem;
-    }
-
-    .why-icon {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0.75rem;
-      color: #F4F887;
-    }
-
-    .why-card h3 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    .why-card p {
-      font-size: 13px;
-      color: #777;
-      line-height: 1.55;
-    }
-
-    .why-card cite {
-      display: block;
-      font-size: 11px;
-      color: #222222;
-      margin-top: 0.6rem;
-      font-style: normal;
-      border-left: 2px solid #F4F887;
-      padding-left: 8px;
-      line-height: 1.5;
-    }
-
-    /* ── NATURE BLOCK ── */
-    .nature-block {
-      background: #F4F887;
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .nature-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.25rem;
-    }
-
-    .nb-journal {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #9FE1CB;
-      letter-spacing: -0.3px;
-    }
-
-    .nb-tag {
-      font-size: 12px;
-      color: #F4F887;
-      background: rgba(29, 158, 117, 0.2);
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-
-    .nature-headline {
-      font-size: 26px;
-      font-weight: 400;
-      color: #F4F887;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.9rem;
-      line-height: 1.25;
-    }
-
-    .nature-body {
-      font-size: 15px;
-      color: #9FE1CB;
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-
-    .nature-body em {
-      color: #F4F887;
-      font-style: italic;
-    }
-
-    .nature-body strong {
-      color: #F4F887;
-      font-weight: 500;
-    }
-
-    .nature-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 13px;
-      color: #F4F887;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(93, 202, 165, 0.4);
-      padding-bottom: 2px;
-    }
-
-    /* ── RESEARCH BUNDLE ── */
-    .research-bundle {
-      background: #CDDCDE;
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin-bottom: 4.5rem;
-    }
-
-    .research-bundle h3 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      color: #1a1a1a;
-    }
-
-    .research-bundle .rb-sub {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 1.25rem;
-    }
-
-    .research-items {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .r-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .r-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #222222;
-      margin-top: 8px;
-      flex-shrink: 0;
-    }
-
-    .r-item p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #1a1a1a;
-    }
-
-    .r-item cite {
-      font-size: 11px;
-      color: #777;
-      font-style: normal;
-      display: block;
-      margin-top: 3px;
-    }
-
-    .nature-ref {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid #e8e8e8;
-    }
-
-    .nature-label {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #222222;
-      flex-shrink: 0;
-      padding-top: 2px;
-    }
-
-    .nature-ref-text p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #1a1a1a;
-    }
-
-    .nature-ref-text cite {
-      font-size: 11px;
-      color: #777;
-      font-style: normal;
-      display: block;
-      margin-top: 3px;
-    }
-
-    .nature-ref-text a {
-      font-size: 12px;
-      color: #222222;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(29, 158, 117, 0.3);
-    }
-
-    /* ── DSGVO BLOCK ── */
-    .dsgvo-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-      margin-bottom: 4.5rem;
-      padding: 1.5rem;
-      background: #CDDCDE;
-      border-radius: 16px;
-      border: 1px solid #ebebeb;
-    }
-
-    .dsgvo-headline {
-      font-size: 28px;
-      font-weight: 400;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
-      margin-bottom: 0.9rem;
-    }
-
-    .dsgvo-body {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.65;
-      margin-bottom: 0.75rem;
-    }
-
-    .dsgvo-body strong {
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-
-    .dsgvo-right {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .dsgvo-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: #fff;
-      border: 1px solid #ebebeb;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-    }
-
-    .dsgvo-card-accent {
-      border-color: #F4F887;
-      border-width: 1.5px;
-      background: #f0faf6;
-    }
-
-    .dsgvo-card-icon {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-      color: #F4F887;
-    }
-
-    .dsgvo-card-text h4 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .dsgvo-card-text p {
-      font-size: 12px;
-      color: #999;
-    }
-
-    /* ── RESEARCH ── */
-    .research {
-      background: #f8f8f6;
-      border-radius: 14px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 4.5rem;
-    }
-
-    .research h3 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-    }
-
-    .research-items {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .r-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .r-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #222222;
-      margin-top: 8px;
-      flex-shrink: 0;
-    }
-
-    .r-item p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #1a1a1a;
-    }
-
-    .r-item cite {
-      font-size: 11px;
-      color: #777;
-      font-style: normal;
-      display: block;
-      margin-top: 3px;
-    }
-
-    /* ── CTA BLOCK ── */
-    .cta-block {
-      background: #F4F887;
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-      margin-bottom: 4.5rem;
-    }
-
-    .cta-block h2 {
-      font-size: 28px;
-      font-weight: 400;
-      color: #222222;
-      letter-spacing: -0.4px;
-      margin-bottom: 0.75rem;
-    }
-
-    .cta-block p {
-      font-size: 16px;
-      color: #222222;
-      margin-bottom: 2rem;
-      line-height: 1.65;
-    }
-
-    .btn-light {
-      background: #fff;
-      color: #222222;
-      border: none;
-      border-radius: 7px;
-      padding: 14px 30px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      border: 1px solid transparent;
-    }
-
-    .btn-light:hover {
-      background: #F4F887;
-      border: 1px solid white;
-    }
-
-    .cta-sub {
-      font-size: 13px;
-      color: #F4F887;
-      margin-top: 1rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid #f0f0f0;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: #ccc;
-    }
-
-    @media(max-width:768px) {
-
-      .scroll-hint {
-        left: 46%;
-      }
-    }
-
-    @media(max-width:640px) {
-
-      .hero-h1 {
-        font-size: 34px;
-      }
-
-      .hero-nav {
-        padding: 1rem 1rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .nav-right {
-        order: 2;
-        gap: 8px;
-      }
-
-      .nav-badge {
-        font-size: 10px;
-      }
-
-      .btn-nav {
-        font-size: 12px;
-        padding: 6px 12px;
-      }
-
-      .hero-content {
-        padding: 0 1rem;
-      }
-
-      .hero-h1 {
-        font-size: 32px;
-        line-height: 1.2;
-        letter-spacing: -1px;
-      }
-
-      .hero-sub {
-        font-size: 16px;
-        line-height: 1.6;
-        max-width: 100%;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .btn-primary,
-      .btn-ghost {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-      }
-
-      .hero-note {
-        font-size: 12px;
-      }
-
-      /* ── LAYOUT MOBILE ── */
-      .lp {
-        padding: 0 1rem;
-      }
-
-      .section {
-        margin-bottom: 3rem;
-      }
-
-      .section h2 {
-        font-size: 24px;
-        line-height: 1.3;
-      }
-
-      .lead {
-        font-size: 15px;
-        max-width: 100%;
-      }
-
-      /* ── DEMO MOBILE ── */
-      .demo-frame {
-        padding: 1rem;
-        border-radius: 12px;
-      }
-
-      .personas {
-        gap: 6px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .persona {
-        padding: 0.6rem 0.8rem;
-        flex-shrink: 0;
-      }
-
-      .persona .av {
-        width: 28px;
-        height: 28px;
-        font-size: 11px;
-      }
-
-      .persona h4 {
-        font-size: 12px;
-      }
-
-      .persona span {
-        font-size: 10px;
-      }
-
-      .chat-area {
-        padding: 0.8rem;
-      }
-
-      .msg {
-        gap: 6px;
-        margin-bottom: 0.6rem;
-      }
-
-      .bubble {
-        font-size: 12px;
-        padding: 8px 11px;
-        max-width: 85%;
-      }
-
-      .av-sm {
-        width: 24px;
-        height: 24px;
-        font-size: 10px;
-      }
-
-      .chat-input-row {
-        gap: 6px;
-      }
-
-      .chat-mock-input {
-        font-size: 12px;
-        padding: 8px 10px 8px 35px;
-      }
-
-      .chat-send-btn {
-        padding: 8px 12px;
-        font-size: 12px;
-      }
-
-      /* ── STEPS MOBILE ── */
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .step {
-        padding: 1rem;
-      }
-
-      .step h3 {
-        font-size: 14px;
-      }
-
-      .step p {
-        font-size: 12px;
-      }
-
-      /* ── WHY CARDS MOBILE ── */
-      .why-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .why-card {
-        padding: 1.2rem;
-      }
-
-      .why-card .ic {
-        font-size: 14px;
-      }
-
-      .why-card h3 {
-        font-size: 13px;
-      }
-
-      .why-card p {
-        font-size: 12px;
-      }
-
-      .why-card cite {
-        font-size: 10px;
-        padding-left: 6px;
-      }
-
-      /* ── NATURE BLOCK MOBILE ── */
-      .nature-block {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .nature-badge {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        margin-bottom: 1rem;
-      }
-
-      .nb-journal {
-        font-size: 16px;
-      }
-
-      .nb-tag {
-        font-size: 11px;
-        padding: 2px 8px;
-      }
-
-      .nature-headline {
-        font-size: 20px;
-        line-height: 1.3;
-      }
-
-      .nature-body {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .nature-link {
-        font-size: 12px;
-      }
-
-      /* ── DSGVO BLOCK MOBILE ── */
-      .dsgvo-block {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem;
-      }
-
-      .dsgvo-headline {
-        font-size: 22px;
-        line-height: 1.3;
-      }
-
-      .dsgvo-body {
-        font-size: 14px;
-      }
-
-      .dsgvo-right {
-        gap: 8px;
-      }
-
-      .dsgvo-card {
-        padding: 0.8rem 1rem;
-      }
-
-      .dsgvo-icon {
-        font-size: 18px;
-      }
-
-      .dsgvo-card-text h4 {
-        font-size: 13px;
-      }
-
-      .dsgvo-card-text p {
-        font-size: 11px;
-      }
-
-      /* ── RESEARCH MOBILE ── */
-      .research {
-        padding: 1.5rem;
-        margin-bottom: 3rem;
-      }
-
-      .research h3 {
-        font-size: 14px;
-      }
-
-      .research-items {
-        gap: 12px;
-      }
-
-      .r-item {
-        gap: 10px;
-      }
-
-      .r-item p {
-        font-size: 13px;
-        line-height: 1.5;
-      }
-
-      .r-item cite {
-        font-size: 10px;
-        margin-top: 2px;
-      }
-
-      /* ── CTA BLOCK MOBILE ── */
-      .cta-block {
-        padding: 1.5rem;
-        margin-bottom: 3rem;
-      }
-
-      .cta-block h2 {
-        font-size: 22px;
-        line-height: 1.3;
-      }
-
-      .cta-block p {
-        font-size: 15px;
-        margin-bottom: 1.5rem;
-      }
-
-      .btn-light {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-      }
-
-      .cta-sub {
-        font-size: 12px;
-      }
-
-      /* ── FOOTER MOBILE ── */
-      footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      footer p {
-        font-size: 11px;
-        line-height: 1.5;
-      }
-
-      /* ── PROOF BAR MOBILE ── */
-      .proof {
-        padding: 1.5rem;
-        margin-bottom: 3rem;
-      }
-
-      .proof p {
-        font-size: 11px;
-        line-height: 1.5;
-      }
-    }
-
-    @media(max-width:480px) {
-      .hero-h1 {
-        font-size: 28px;
-      }
-
-      .hero-sub {
-        font-size: 15px;
-      }
-
-      .section h2 {
-        font-size: 18px
-      }
-
-      .nature-headline {
-        font-size: 18px;
-      }
-
-      .dsgvo-headline {
-        font-size: 18px;
-      }
-
-      .cta-block h2 {
-        font-size: 20px;
-      }
-    }
-
-    /* ── ANIMATIONS ── */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .animate-on-scroll.animated {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero-eyebrow {
-      animation: fadeInDown 0.8s ease-out 0.2s both;
-    }
-
-    .hero-h1 {
-      animation: fadeInDown 0.8s ease-out 0.4s both;
-    }
-
-    .hero-sub {
-      animation: fadeInDown 0.8s ease-out 0.6s both;
-    }
-
-    .hero-ctas {
-      animation: fadeInUp 0.8s ease-out 0.8s both;
-    }
-
-    .hero-note {
-      animation: fadeInUp 0.8s ease-out 1s both;
-    }
-
-    .scroll-hint {
-      animation: bounce 2s infinite 1.5s;
-    }
-
-    .persona {
-      transition: all 0.3s ease;
-    }
-
-    .persona:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .step {
-      transition: all 0.3s ease;
-    }
-
-    .step:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .why-card {
-      transition: all 0.3s ease;
-    }
-
-    .why-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .btn-primary,
-    .btn-ghost,
-    .btn-nav,
-    .btn-light {
-      transition: all 0.2s ease;
-    }
-
-    .bubble {
-      animation: messageSlide 0.4s ease-out;
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0);
-      }
-
-      40% {
-        transform: translateY(-10px);
-      }
-
-      60% {
-        transform: translateY(-5px);
-      }
-    }
-
-    @keyframes messageSlide {
-      from {
-        opacity: 0;
-        transform: translateX(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .chat-send-btn:hover {
-      transform: scale(1.05);
-    }
-
-    .logo {
-      transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .demo-frame {
-      animation: fadeIn 1s ease-out 0.3s both;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* ── CUSTOM SCROLLBAR ── */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f8f8f6;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #F4F887;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0F6E56;
-    }
-
-    /* Firefox scrollbar */
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: #F4F887 #f8f8f6;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- ══ HERO WITH VIDEO ══ -->
-  <div class="hero-wrap">
-
-    <!-- Stummvideo: Platzhalter-URL – ersetze mit eigenem Video -->
-
-    <video class="hero-video" autoplay muted loop playsinline preload="none"
-      poster="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-poster.jpg">
-      <source src="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-video.mp4"
-        type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-
-    <nav class="hero-nav">
-      <div class="hero-main">
-        <a href="#" class="logo">
-          <img src="assets/images/logo.png" alt="haico logo" class="logo-img" />
-        </a>
-        <!-- <span class="nav-badge">&thinsp;&middot;&thinsp;</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="assets/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="assets/favicon-16x16.png"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- SEO -->
+        <title>haico – Dein Kunde sitzt immer mit am Tisch</title>
+        <meta
+            name="description"
+            content="haico verwandelt deine Kundensegmentierung in gesprächsfähige digitale Personas. KI-gestützt, forschungsbasiert, DSGVO-konform. Ein Produkt von philoneos."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="philoneos GmbH" />
+        <meta
+            property="og:title"
+            content="haico – Dein Kunde sitzt immer mit am Tisch"
+        />
+        <meta
+            property="og:description"
+            content="Deine Kunden, digital und immer verfügbar. KI-gestützt, akademisch fundiert, DSGVO-konform."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://haico.digital" />
+        <meta
+            property="og:image"
+            content="https://haico.digital/assets/og-image.jpg"
+        />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://haico.digital" />
+
+        <!-- Open Graph extras -->
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:site_name" content="haico" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="haico – Dein Kunde sitzt immer mit am Tisch"
+        />
+        <meta
+            name="twitter:description"
+            content="Deine Kunden, digital und immer verfügbar."
+        />
+        <meta
+            name="twitter:image"
+            content="https://haico.digital/assets/og-image.jpg"
+        />
+
+        <!-- Theme color -->
+        <meta name="theme-color" content="#0A0A0F" />
+
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-CG8VLJZQVS"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-CG8VLJZQVS');
+        </script>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            nav,
+            button,
+            .btn-primary,
+            .btn-ghost,
+            .btn-nav,
+            .hero-eyebrow,
+            .nav-badge,
+            .logo-text {
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-weight: 700;
+            }
+
+            h4,
+            h5,
+            h6 {
+                font-weight: 500;
+            }
+
+            body {
+                font-family: 'IBM Plex Sans', Georgia, serif;
+                background: #fff;
+                color: #1a1a1a;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* ── HERO ── */
+            .hero-wrap {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                min-height: 600px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hero-video {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;
+            }
+
+            .hero-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0.35) 60%,
+                    rgba(0, 0, 0, 0.7) 100%
+                );
+                z-index: 1;
+            }
+
+            .hero-nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.5rem 2.5rem;
+            }
+
+            .hero-main {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+            }
+
+            .logo-img {
+                height: 36px;
+                width: auto;
+                display: block;
+            }
+
+            .logo-mark {
+                width: 34px;
+                height: 34px;
+                background: #f4f887;
+                border-radius: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .logo-text {
+                font-size: 20px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                color: #fff;
+            }
+
+            .logo-text span {
+                color: #f4f887;
+            }
+
+            .nav-right {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .nav-badge {
+                font-size: 11px;
+                color: #f4f887;
+                border-radius: 20px;
+                backdrop-filter: blur(10px);
+                font-weight: 500;
+                letter-spacing: 0.3px;
+                margin-top: 3px;
+            }
+
+            .btn-nav {
+                background: rgba(255, 255, 255, 0.15);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 7px;
+                padding: 9px 20px;
+                font-size: 14px;
+                cursor: pointer;
+                backdrop-filter: blur(6px);
+                text-decoration: none;
+            }
+
+            .btn-nav:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                padding: 0 1.5rem;
+                max-width: 780px;
+            }
+
+            .hero-eyebrow {
+                font-size: 12px;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.65);
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-h1 {
+                font-size: 55px;
+                font-weight: 500;
+                line-height: 1.1;
+                letter-spacing: -1.5px;
+                color: #fff;
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-h1 em {
+                color: #f4f887;
+                font-style: normal;
+                font-weight: 400;
+            }
+
+            .hero-sub {
+                font-size: 18px;
+                color: rgba(255, 255, 255, 0.75);
+                line-height: 1.65;
+                max-width: 520px;
+                margin: 0 auto 2.25rem;
+                font-weight: 400;
+            }
+
+            .hero-ctas {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .btn-primary {
+                background: #f4f887;
+                color: #222222;
+                border: none;
+                border-radius: 7px;
+                padding: 14px 30px;
+                font-size: 15px;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .btn-primary:hover {
+                background: #f4f887;
+            }
+
+            .btn-ghost {
+                background: transparent;
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 7px;
+                padding: 14px 30px;
+                font-size: 15px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .btn-ghost:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .hero-note {
+                font-size: 13px;
+                color: #fff;
+                margin-top: 1rem;
+            }
+
+            .scroll-hint {
+                position: absolute;
+                bottom: 2rem;
+                left: 49%;
+                /* transform: translateX(-50%); */
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .scroll-hint span {
+                font-size: 11px;
+                color: #f4f887a8;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .scroll-line {
+                width: 1px;
+                height: 40px;
+                background: linear-gradient(to bottom, #f4f887a8, transparent);
+            }
+
+            /* ── LAYOUT ── */
+            .lp {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            /* ── PROOF BAR ── */
+            .proof {
+                border-bottom: 1px solid #f0f0f0;
+                padding: 1.5rem;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .proof p {
+                font-size: 13px;
+                color: #aaa;
+                letter-spacing: 0.02em;
+            }
+
+            /* ── SECTIONS ── */
+            .section {
+                margin-bottom: 4.5rem;
+                padding: 1.5rem;
+            }
+
+            .section-label {
+                font-size: 11px;
+                font-weight: 500;
+                color: #222222;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+            }
+
+            .section h2 {
+                font-size: 30px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.75rem;
+            }
+
+            .lead {
+                font-size: 16px;
+                color: #666;
+                line-height: 1.7;
+                margin-bottom: 2rem;
+                max-width: 600px;
+            }
+
+            /* ── DEMO MOCKUP ── */
+            .demo-frame {
+                background: #f5f5f3;
+                border-radius: 16px;
+                padding: 1.5rem;
+                border: 1px solid #cddcde;
+                margin-bottom: 2rem;
+            }
+
+            .demo-topbar {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin-bottom: 1.25rem;
+            }
+
+            .dot {
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+            }
+
+            .personas {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 1.25rem;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 5px 0;
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* Internet Explorer 10+ */
+            }
+
+            .personas::-webkit-scrollbar {
+                display: none;
+                /* Safari and Chrome */
+            }
+
+            .persona {
+                flex: 1;
+                min-width: 0;
+                text-align: center;
+                background: #fff;
+                border: 1px solid #e8e8e8;
+                border-radius: 10px;
+                padding: 0.8rem 1rem;
+                min-width: 148px;
+                cursor: pointer;
+            }
+
+            .persona.active {
+                border-color: #f4f887;
+                border-width: 1.5px;
+            }
+
+            .persona .av {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 6px;
+            }
+
+            .persona h4 {
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 2px;
+            }
+
+            .persona span {
+                font-size: 11px;
+                color: #999;
+            }
+
+            .chat-area {
+                background: #fff;
+                border-radius: 10px;
+                padding: 1rem;
+                border: 1px solid #e8e8e8;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+            }
+
+            .msg {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 0.8rem;
+                align-items: flex-start;
+            }
+
+            .msg.user {
+                flex-direction: row-reverse;
+            }
+
+            .bubble {
+                font-size: 13px;
+                line-height: 1.55;
+                padding: 9px 13px;
+                border-radius: 12px;
+                max-width: 76%;
+            }
+
+            .bubble.ai {
+                background: #f5f5f3;
+                color: #1a1a1a;
+                border-radius: 4px 12px 12px 12px;
+            }
+
+            .bubble.human {
+                background: #f4f887;
+                color: #222222;
+                border-radius: 12px 4px 12px 12px;
+            }
+
+            .av-sm {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: 500;
+                flex-shrink: 0;
+            }
+
+            .chat-input-row {
+                margin-top: 0.8rem;
+                margin-bottom: 0;
+            }
+
+            .chat-input-wrapper {
+                flex: 1;
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+
+            .chat-mock-input {
+                width: 100%;
+                border: 1px solid #e5e5e5;
+                border-radius: 7px;
+                padding: 9px 40px 9px 40px;
+                font-size: 13px;
+                color: #333;
+                background: #fafafa;
+                outline: none;
+                transition: border-color 0.2s;
+                padding-right: 45px;
+            }
+
+            .chat-mock-input:focus {
+                border-color: #f4f887;
+            }
+
+            .chat-mock-input::placeholder {
+                color: #999;
+            }
+
+            .input-sparkle {
+                position: absolute;
+                left: 12px;
+                color: #f4f887;
+                pointer-events: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.7;
+            }
+
+            .input-sparkle svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .input-send {
+                position: absolute;
+                right: 8px;
+                color: #f4f887;
+                background: transparent;
+                border: none;
+                padding: 6px;
+                border-radius: 4px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    transform 0.2s,
+                    color 0.2s;
+            }
+
+            .input-send:hover {
+                transform: translateY(-1px);
+                color: #0f6e56;
+            }
+
+            .input-send svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* ── STEPS ── */
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .step {
+                background: #cddcde;
+                border-radius: 12px;
+                padding: 1.25rem;
+            }
+
+            .step-num {
+                font-size: 11px;
+                font-weight: 500;
+                color: #f4f887;
+                background: #222222;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 0.75rem;
+            }
+
+            .step h3 {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 0.4rem;
+            }
+
+            .step p {
+                font-size: 13px;
+                color: #777;
+                line-height: 1.55;
+            }
+
+            /* ── WHY CARDS ── */
+            .why-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .why-card {
+                background: #282827;
+                border: 1px solid #f4f887;
+                border-radius: 12px;
+                padding: 1.4rem 1.5rem;
+            }
+
+            .why-icon {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 0.75rem;
+                color: #f4f887;
+            }
+
+            .why-card h3 {
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 0.4rem;
+                color: white;
+            }
+
+            .why-card p {
+                font-size: 13px;
+                color: #cddcde77;
+                line-height: 1.55;
+            }
+
+            .why-card cite {
+                display: block;
+                font-size: 11px;
+                color: #cddcde;
+                margin-top: 0.6rem;
+                font-style: normal;
+                border-left: 2px solid #f4f887;
+                padding-left: 8px;
+                line-height: 1.5;
+            }
+
+            /* ── NATURE BLOCK ── */
+            .nature-block {
+                background: #f4f887;
+                border-radius: 16px;
+                padding: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .nature-badge {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 1.25rem;
+            }
+
+            .nb-journal {
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-size: 18px;
+                font-weight: 700;
+                color: #9fe1cb;
+                letter-spacing: -0.3px;
+            }
+
+            .nb-tag {
+                font-size: 12px;
+                color: #f4f887;
+                background: rgba(29, 158, 117, 0.2);
+                padding: 3px 10px;
+                border-radius: 20px;
+            }
+
+            .nature-headline {
+                font-size: 26px;
+                font-weight: 400;
+                color: #f4f887;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.9rem;
+                line-height: 1.25;
+            }
+
+            .nature-body {
+                font-size: 15px;
+                color: #9fe1cb;
+                line-height: 1.7;
+                margin-bottom: 0.75rem;
+            }
+
+            .nature-body em {
+                color: #f4f887;
+                font-style: italic;
+            }
+
+            .nature-body strong {
+                color: #f4f887;
+                font-weight: 500;
+            }
+
+            .nature-link {
+                display: inline-block;
+                margin-top: 0.75rem;
+                font-size: 13px;
+                color: #f4f887;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(93, 202, 165, 0.4);
+                padding-bottom: 2px;
+            }
+
+            /* ── RESEARCH BUNDLE ── */
+            .research-bundle {
+                background: #f5f5f3;
+                border-radius: 14px;
+                padding: 1.5rem;
+                margin-bottom: 4.5rem;
+            }
+
+            .research-bundle h3 {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 0.4rem;
+                color: #1a1a1a;
+            }
+
+            .research-bundle .rb-sub {
+                font-size: 13px;
+                color: #777;
+                margin-bottom: 1.25rem;
+            }
+
+            .research-items {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .r-item {
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .r-dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #222222;
+                margin-top: 8px;
+                flex-shrink: 0;
+            }
+
+            .r-item p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #1a1a1a;
+            }
+
+            .r-item cite {
+                font-size: 11px;
+                color: #777;
+                font-style: normal;
+                display: block;
+                margin-top: 3px;
+            }
+
+            .nature-ref {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px solid #e8e8e8;
+            }
+
+            .nature-label {
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-size: 13px;
+                font-weight: 700;
+                color: #222222;
+                flex-shrink: 0;
+                padding-top: 2px;
+            }
+
+            .nature-ref-text p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #1a1a1a;
+            }
+
+            .nature-ref-text cite {
+                font-size: 11px;
+                color: #777;
+                font-style: normal;
+                display: block;
+                margin-top: 3px;
+            }
+
+            .nature-ref-text a {
+                font-size: 12px;
+                color: #222222;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(29, 158, 117, 0.3);
+            }
+
+            /* ── DSGVO BLOCK ── */
+            .dsgvo-block {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+                align-items: center;
+                margin-bottom: 4.5rem;
+                padding: 1.5rem;
+                background: #ebebeb;
+                border-radius: 16px;
+                border: 1px solid #ebebeb;
+            }
+
+            .dsgvo-headline {
+                font-size: 28px;
+                font-weight: 400;
+                letter-spacing: -0.5px;
+                line-height: 1.2;
+                margin-bottom: 0.9rem;
+            }
+
+            .dsgvo-body {
+                font-size: 15px;
+                color: #666;
+                line-height: 1.65;
+                margin-bottom: 0.75rem;
+            }
+
+            .dsgvo-body strong {
+                color: #1a1a1a;
+                font-weight: 500;
+            }
+
+            .dsgvo-right {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .dsgvo-card {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background: #282827;
+                border: 1px solid #f4f887;
+                border-radius: 10px;
+                padding: 1rem 1.25rem;
+            }
+
+            .dsgvo-card-accent {
+                border-color: #f4f887;
+                border-width: 1.5px;
+                background: #f0faf6;
+            }
+
+            .dsgvo-card-icon {
+                width: 28px;
+                height: 28px;
+                flex-shrink: 0;
+                color: #f4f887;
+            }
+
+            .dsgvo-card-text h4 {
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 2px;
+                color: white;
+            }
+
+            .dsgvo-card-text p {
+                font-size: 12px;
+                color: #cddcde;
+            }
+
+            /* ── RESEARCH ── */
+            .research {
+                background: #f8f8f6;
+                border-radius: 14px;
+                padding: 1.75rem 2rem;
+                margin-bottom: 4.5rem;
+            }
+
+            .research h3 {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: #1a1a1a;
+            }
+
+            .research-items {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .r-item {
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .r-dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #222222;
+                margin-top: 8px;
+                flex-shrink: 0;
+            }
+
+            .r-item p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #1a1a1a;
+            }
+
+            .r-item cite {
+                font-size: 11px;
+                color: #777;
+                font-style: normal;
+                display: block;
+                margin-top: 3px;
+            }
+
+            /* ── CTA BLOCK ── */
+            .cta-block {
+                background: #f4f887;
+                border-radius: 16px;
+                padding: 1.5rem;
+                text-align: center;
+                margin-bottom: 4.5rem;
+            }
+
+            .cta-block h2 {
+                font-size: 28px;
+                font-weight: 400;
+                color: #222222;
+                letter-spacing: -0.4px;
+                margin-bottom: 0.75rem;
+            }
+
+            .cta-block p {
+                font-size: 16px;
+                color: #222222;
+                margin-bottom: 2rem;
+                line-height: 1.65;
+            }
+
+            .btn-light {
+                background: #fff;
+                color: #222222;
+                border: none;
+                border-radius: 7px;
+                padding: 14px 30px;
+                font-size: 15px;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+                border: 1px solid transparent;
+            }
+
+            .btn-light:hover {
+                background: #222222;
+                border: 1px solid #f4f887;
+                color: #cddcde;
+            }
+
+            .cta-sub {
+                font-size: 13px;
+                color: #f4f887;
+                margin-top: 1rem;
+            }
+
+            /* ── FOOTER ── */
+            footer {
+                border-top: 1px solid #f0f0f0;
+                padding: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 2rem;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            footer p {
+                font-size: 12px;
+                color: #ccc;
+            }
+
+            @media (max-width: 768px) {
+                .scroll-hint {
+                    left: 46%;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .hero-h1 {
+                    font-size: 34px;
+                }
+
+                .hero-nav {
+                    padding: 1rem 1rem;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+
+                .nav-right {
+                    order: 2;
+                    gap: 8px;
+                }
+
+                .nav-badge {
+                    font-size: 10px;
+                }
+
+                .btn-nav {
+                    font-size: 12px;
+                    padding: 6px 12px;
+                }
+
+                .hero-content {
+                    padding: 0 1rem;
+                }
+
+                .hero-h1 {
+                    font-size: 32px;
+                    line-height: 1.2;
+                    letter-spacing: -1px;
+                }
+
+                .hero-sub {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    max-width: 100%;
+                }
+
+                .hero-ctas {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .btn-primary,
+                .btn-ghost {
+                    width: 100%;
+                    max-width: 280px;
+                    text-align: center;
+                    font-weight: 400;
+                }
+
+                .hero-note {
+                    font-size: 12px;
+                }
+
+                /* ── LAYOUT MOBILE ── */
+                .lp {
+                    padding: 0 1rem;
+                }
+
+                .section {
+                    margin-bottom: 3rem;
+                }
+
+                .section h2 {
+                    font-size: 24px;
+                    line-height: 1.3;
+                }
+
+                .lead {
+                    font-size: 15px;
+                    max-width: 100%;
+                }
+
+                /* ── DEMO MOBILE ── */
+                .demo-frame {
+                    padding: 1rem;
+                    border-radius: 12px;
+                }
+
+                .personas {
+                    gap: 6px;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .persona {
+                    padding: 0.6rem 0.8rem;
+                    flex-shrink: 0;
+                }
+
+                .persona .av {
+                    width: 28px;
+                    height: 28px;
+                    font-size: 11px;
+                }
+
+                .persona h4 {
+                    font-size: 12px;
+                }
+
+                .persona span {
+                    font-size: 10px;
+                }
+
+                .chat-area {
+                    padding: 0.8rem;
+                }
+
+                .msg {
+                    gap: 6px;
+                    margin-bottom: 0.6rem;
+                }
+
+                .bubble {
+                    font-size: 12px;
+                    padding: 8px 11px;
+                    max-width: 85%;
+                }
+
+                .av-sm {
+                    width: 24px;
+                    height: 24px;
+                    font-size: 10px;
+                }
+
+                .chat-input-row {
+                    gap: 6px;
+                }
+
+                .chat-mock-input {
+                    font-size: 12px;
+                    padding: 8px 10px 8px 35px;
+                }
+
+                .chat-send-btn {
+                    padding: 8px 12px;
+                    font-size: 12px;
+                }
+
+                /* ── STEPS MOBILE ── */
+                .steps {
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                    background: #f5f5f3;
+                }
+
+                .step {
+                    padding: 1rem;
+                }
+
+                .step h3 {
+                    font-size: 14px;
+                }
+
+                .step p {
+                    font-size: 12px;
+                }
+
+                /* ── WHY CARDS MOBILE ── */
+                .why-grid {
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                }
+
+                .why-card {
+                    padding: 1.2rem;
+                }
+
+                .why-card .ic {
+                    font-size: 14px;
+                }
+
+                .why-card h3 {
+                    font-size: 13px;
+                }
+
+                .why-card p {
+                    font-size: 12px;
+                }
+
+                .why-card cite {
+                    font-size: 10px;
+                    padding-left: 6px;
+                }
+
+                /* ── NATURE BLOCK MOBILE ── */
+                .nature-block {
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                }
+
+                .nature-badge {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 6px;
+                    margin-bottom: 1rem;
+                }
+
+                .nb-journal {
+                    font-size: 16px;
+                }
+
+                .nb-tag {
+                    font-size: 11px;
+                    padding: 2px 8px;
+                }
+
+                .nature-headline {
+                    font-size: 20px;
+                    line-height: 1.3;
+                }
+
+                .nature-body {
+                    font-size: 14px;
+                    line-height: 1.6;
+                }
+
+                .nature-link {
+                    font-size: 12px;
+                }
+
+                /* ── DSGVO BLOCK MOBILE ── */
+                .dsgvo-block {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                    padding: 1.5rem;
+                }
+
+                .dsgvo-headline {
+                    font-size: 22px;
+                    line-height: 1.3;
+                }
+
+                .dsgvo-body {
+                    font-size: 14px;
+                }
+
+                .dsgvo-right {
+                    gap: 8px;
+                }
+
+                .dsgvo-card {
+                    padding: 0.8rem 1rem;
+                }
+
+                .dsgvo-icon {
+                    font-size: 18px;
+                }
+
+                .dsgvo-card-text h4 {
+                    font-size: 13px;
+                }
+
+                .dsgvo-card-text p {
+                    font-size: 11px;
+                }
+
+                /* ── RESEARCH MOBILE ── */
+                .research {
+                    padding: 1.5rem;
+                    margin-bottom: 3rem;
+                }
+
+                .research h3 {
+                    font-size: 14px;
+                }
+
+                .research-items {
+                    gap: 12px;
+                }
+
+                .r-item {
+                    gap: 10px;
+                }
+
+                .r-item p {
+                    font-size: 13px;
+                    line-height: 1.5;
+                }
+
+                .r-item cite {
+                    font-size: 10px;
+                    margin-top: 2px;
+                }
+
+                /* ── CTA BLOCK MOBILE ── */
+                .cta-block {
+                    padding: 1.5rem;
+                    margin-bottom: 3rem;
+                }
+
+                .cta-block h2 {
+                    font-size: 22px;
+                    line-height: 1.3;
+                }
+
+                .cta-block p {
+                    font-size: 15px;
+                    margin-bottom: 1.5rem;
+                }
+
+                .btn-light {
+                    width: 100%;
+                    max-width: 280px;
+                    text-align: center;
+                }
+
+                .cta-sub {
+                    font-size: 12px;
+                }
+
+                /* ── FOOTER MOBILE ── */
+                footer {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                footer p {
+                    font-size: 11px;
+                    line-height: 1.5;
+                }
+
+                /* ── PROOF BAR MOBILE ── */
+                .proof {
+                    padding: 1.5rem;
+                    margin-bottom: 3rem;
+                }
+
+                .proof p {
+                    font-size: 11px;
+                    line-height: 1.5;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-h1 {
+                    font-size: 28px;
+                }
+
+                .hero-sub {
+                    font-size: 15px;
+                }
+
+                .section h2 {
+                    font-size: 18px;
+                }
+
+                .nature-headline {
+                    font-size: 18px;
+                }
+
+                .dsgvo-headline {
+                    font-size: 18px;
+                }
+
+                .cta-block h2 {
+                    font-size: 20px;
+                }
+            }
+
+            /* ── ANIMATIONS ── */
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition:
+                    opacity 0.6s ease-out,
+                    transform 0.6s ease-out;
+            }
+
+            .animate-on-scroll.animated {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .hero-eyebrow {
+                animation: fadeInDown 0.8s ease-out 0.2s both;
+            }
+
+            .hero-h1 {
+                animation: fadeInDown 0.8s ease-out 0.4s both;
+            }
+
+            .hero-sub {
+                animation: fadeInDown 0.8s ease-out 0.6s both;
+            }
+
+            .hero-ctas {
+                animation: fadeInUp 0.8s ease-out 0.8s both;
+            }
+
+            .hero-note {
+                animation: fadeInUp 0.8s ease-out 1s both;
+            }
+
+            .scroll-hint {
+                animation: bounce 2s infinite 1.5s;
+            }
+
+            .persona {
+                transition: all 0.3s ease;
+            }
+
+            .persona:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .step {
+                transition: all 0.3s ease;
+                background: #f5f5f3;
+            }
+
+            .step:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            }
+
+            .why-card {
+                transition: all 0.3s ease;
+            }
+
+            .why-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            }
+
+            .btn-primary,
+            .btn-ghost,
+            .btn-nav,
+            .btn-light {
+                transition: all 0.2s ease;
+            }
+
+            .bubble {
+                animation: messageSlide 0.4s ease-out;
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes bounce {
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                40% {
+                    transform: translateY(-10px);
+                }
+
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+
+            @keyframes messageSlide {
+                from {
+                    opacity: 0;
+                    transform: translateX(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .chat-send-btn:hover {
+                transform: scale(1.05);
+            }
+
+            .logo {
+                transition: all 0.3s ease;
+            }
+
+            .logo:hover {
+                transform: scale(1.05);
+            }
+
+            .demo-frame {
+                animation: fadeIn 1s ease-out 0.3s both;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* ── CUSTOM SCROLLBAR ── */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f8f8f6;
+                border-radius: 4px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #f4f887;
+                border-radius: 4px;
+                transition: background 0.3s ease;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #0f6e56;
+            }
+
+            /* Firefox scrollbar */
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: #f4f887 #f8f8f6;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- ══ HERO WITH VIDEO ══ -->
+        <div class="hero-wrap">
+            <!-- Stummvideo: Platzhalter-URL – ersetze mit eigenem Video -->
+
+            <video
+                class="hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-poster.jpg"
+            >
+                <source
+                    src="https://buwyvxzbdtfcxjcsrlnv.supabase.co/storage/v1/object/public/haico-assets/hero-video.mp4"
+                    type="video/mp4"
+                />
+            </video>
+            <div class="hero-overlay"></div>
+
+            <nav class="hero-nav">
+                <div class="hero-main">
+                    <a href="#" class="logo">
+                        <img
+                            src="assets/images/logo.png"
+                            alt="haico logo"
+                            class="logo-img"
+                        />
+                    </a>
+                    <!-- <span class="nav-badge">&thinsp;&middot;&thinsp;</span>
         <span class="nav-badge"> by philoneos</span> -->
-      </div>
-      <div class="nav-right">
-        <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
-          class="btn-nav">Demo anfragen</a>
-      </div>
-    </nav>
+                </div>
+                <div class="nav-right">
+                    <a
+                        href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+                        class="btn-nav"
+                        >Demo anfragen</a
+                    >
+                </div>
+            </nav>
 
-    <div class="hero-content">
-      <p class="hero-eyebrow">KI-gestützte Kundensimulation</p>
-      <h1 class="hero-h1">Dein Kunde sitzt <em>immer</em> mit am Tisch.</h1>
-      <p class="hero-sub">haico verwandelt deine Zielgruppen und Kundensegmente in digitale Personas, die du jederzeit
-        befragen, herausfordern und für Entscheidungen nutzen kannst.</p>
-      <div class="hero-ctas">
-        <a href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
-          class="btn-primary">Demo anfragen</a>
-        <a href="#plattform" class="btn-ghost">Mehr erfahren</a>
-      </div>
-      <p class="hero-note">Direkt einsatzbereit nach dem Persona Workshop.</p>
-    </div>
-
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </div>
-
-  <!-- ══ PAGE CONTENT ══ -->
-  <div class="lp">
-
-    <div class="proof">
-      <p style="color:#666;">Entwickelt mit führenden Familienunternehmen und Mittelständlern &nbsp;·&nbsp; Akademisch
-        fundiert
-        &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in Germany</p>
-    </div>
-
-    <!-- DEMO MOCKUP -->
-    <section class="section" id="plattform">
-      <p class="section-label">Die Plattform</p>
-      <h2>Deine Kunden, digital und immer verfügbar.</h2>
-      <p class="lead">Nach dem Persona Workshop mit philoneos findest du 3 bis 5 vollständig ausgearbeitete
-        Kundenpersönlichkeiten in deinem haico-Account, bereit für die nächste Entscheidung.</p>
-
-      <div class="demo-frame">
-        <div class="demo-topbar">
-          <div class="dot" style="background:#f09595;"></div>
-          <div class="dot" style="background:#FAC775;"></div>
-          <div class="dot" style="background:#9FE1CB;"></div>
-          <span style="font-size:12px;color:#666;margin-left:8px;">haico.digital / workspace</span>
-        </div>
-        <div class="personas">
-          <div class="persona active" data-persona="sandra">
-            <div class="av" style="background:#F4F887;color:#222222;">SK</div>
-            <h4>Sandra K.</h4>
-            <span>Einkaufsleiterin, 42</span>
-          </div>
-          <div class="persona" data-persona="markus">
-            <div class="av" style="background:#EEEDFE;color:#3C3489;">MR</div>
-            <h4>Markus R.</h4>
-            <span>Geschäftsführer, 55</span>
-          </div>
-          <div class="persona" data-persona="lena">
-            <div class="av" style="background:#FAEEDA;color:#633806;">LP</div>
-            <h4>Lena P.</h4>
-            <span>Produktmanagerin, 31</span>
-          </div>
-          <div class="persona" data-persona="thomas">
-            <div class="av" style="background:#FAECE7;color:#712B13;">TW</div>
-            <h4>Thomas W.</h4>
-            <span>Vertriebsleiter, 48</span>
-          </div>
-        </div>
-        <div class="chat-area">
-          <div class="msg">
-            <div class="av-sm" style="background:#F4F887;color:#222222;">SK</div>
-            <div class="bubble ai">Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich
-              die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.</div>
-          </div>
-          <div class="msg user">
-            <div class="av-sm" style="background:#EEEDFE;color:#3C3489;">Du</div>
-            <div class="bubble human">Was würde dir den Prozess leichter machen?</div>
-          </div>
-          <div class="msg">
-            <div class="av-sm" style="background:#F4F887;color:#222222;">SK</div>
-            <div class="bubble ai">Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor
-              ich überhaupt weiß, was ich bestellen möchte.</div>
-          </div>
-          <div class="chat-input-row">
-            <div class="chat-input-wrapper">
-              <span class="input-sparkle">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2L14.5 7.5L20 10L14.5 12.5L12 18L9.5 12.5L4 10L9.5 7.5L12 2Z"></path>
-                </svg>
-              </span>
-              <input type="text" class="chat-mock-input" placeholder="Stell Sandra eine Frage..." id="chatInput">
-              <button class="input-send" id="sendBtn" aria-label="Send message">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                </svg>
-              </button>
+            <div class="hero-content">
+                <p class="hero-eyebrow">KI-gestützte Kundensimulation</p>
+                <h1 class="hero-h1">
+                    Dein Kunde sitzt <em>immer</em> mit am Tisch.
+                </h1>
+                <p class="hero-sub">
+                    haico verwandelt deine Zielgruppen und Kundensegmente in
+                    digitale Personas, die du jederzeit befragen, herausfordern
+                    und für Entscheidungen nutzen kannst.
+                </p>
+                <div class="hero-ctas">
+                    <a
+                        href="mailto:scott.keller@philoneos.com?subject=Demo-Anfrage%20haico&body=Hallo%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Demo%20von%20haico.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+                        class="btn-primary"
+                        >Demo anfragen</a
+                    >
+                    <a href="#plattform" class="btn-ghost">Mehr erfahren</a>
+                </div>
+                <p class="hero-note">
+                    Direkt einsatzbereit nach dem Persona Workshop.
+                </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section">
-      <p class="section-label">So funktioniert's</p>
-      <h2>Vom Workshop zur digitalen Kundenstimme.</h2>
-      <p class="lead">haico verbindet strukturierte Workshops mit KI-Technologie zu einem schlanken, wiederholbaren
-        Prozess.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Persona Workshop</h3>
-          <p>Gemeinsam mit philoneos definieren wir deine relevanten Zielgruppen und schaffen die Datenbasis für dein
-            KI-gestütztes Persona-Tool.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Digitaler Aufbau</h3>
-          <p>Wir übersetzen die Workshop-Erkenntnisse in 3 bis 5 trainierte, gesprächsfähige Kundenpersönlichkeiten auf
-            der haico-Plattform.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Jederzeit abrufbar</h3>
-          <p>Dein Team holt sich die Kundenperspektive für Kampagnen, Konzepte oder schnelle Checks direkt und ohne
-            Warten auf Studien und Befragungen.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY HAICO -->
-    <section class="section">
-      <p class="section-label">Warum haico</p>
-      <h2>Kein Rätselraten mehr, was der Kunde denkt.</h2>
-      <p class="lead">Customer Centricity scheitert oft nicht am Willen, sondern am Zugang. haico löst das strukturell.
-      </p>
-      <div class="why-grid">
-
-        <div class="why-card">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-            <circle cx="19" cy="8" r="3" />
-            <path d="M22 18c0-2.5-1.8-4.5-4-5" />
-          </svg>
-          <h3>Kundenperspektive ohne Terminabstimmung</h3>
-          <p>Kein Recruiting, keine NDA, kein Warten auf Feedback-Runden. Deine digitale Zielgruppe ist sofort
-            gesprächsbereit, genau dann wenn du sie brauchst.</p>
+            <div class="scroll-hint">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
         </div>
 
-        <div class="why-card">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-            <path d="M2 12l10 5 10-5" />
-          </svg>
-          <h3>Forschungsbasiert und valide</h3>
-          <p>Synthetische Kundendaten aus Sprachmodellen können menschliches Verhalten in Befragungssituationen
-            zuverlässig abbilden, belegt durch peer-reviewte Forschung.</p>
-          <cite>Argyle et al. (2023), Political Analysis. Brand et al. (2024), Harvard Business School.</cite>
+        <!-- ══ PAGE CONTENT ══ -->
+        <div class="lp">
+            <div class="proof">
+                <p style="color: #666">
+                    Entwickelt mit führenden Familienunternehmen und
+                    Mittelständlern &nbsp;·&nbsp; Akademisch fundiert
+                    &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in Germany
+                </p>
+            </div>
+
+            <!-- DEMO MOCKUP -->
+            <section class="section" id="plattform">
+                <p class="section-label">Die Plattform</p>
+                <h2>Deine Kunden, digital und immer verfügbar.</h2>
+                <p class="lead">
+                    Nach dem Persona Workshop mit philoneos findest du 3 bis 5
+                    vollständig ausgearbeitete Kundenpersönlichkeiten in deinem
+                    haico-Account, bereit für die nächste Entscheidung.
+                </p>
+
+                <div class="demo-frame">
+                    <div class="demo-topbar">
+                        <div class="dot" style="background: #f09595"></div>
+                        <div class="dot" style="background: #fac775"></div>
+                        <div class="dot" style="background: #9fe1cb"></div>
+                        <span
+                            style="
+                                font-size: 12px;
+                                color: #666;
+                                margin-left: 8px;
+                            "
+                            >haico.digital / workspace</span
+                        >
+                    </div>
+                    <div class="personas">
+                        <div class="persona active" data-persona="sandra">
+                            <div
+                                class="av"
+                                style="background: #f4f887; color: #222222"
+                            >
+                                SK
+                            </div>
+                            <h4>Sandra K.</h4>
+                            <span>Einkaufsleiterin, 42</span>
+                        </div>
+                        <div class="persona" data-persona="markus">
+                            <div
+                                class="av"
+                                style="background: #eeedfe; color: #3c3489"
+                            >
+                                MR
+                            </div>
+                            <h4>Markus R.</h4>
+                            <span>Geschäftsführer, 55</span>
+                        </div>
+                        <div class="persona" data-persona="lena">
+                            <div
+                                class="av"
+                                style="background: #faeeda; color: #633806"
+                            >
+                                LP
+                            </div>
+                            <h4>Lena P.</h4>
+                            <span>Produktmanagerin, 31</span>
+                        </div>
+                        <div class="persona" data-persona="thomas">
+                            <div
+                                class="av"
+                                style="background: #faece7; color: #712b13"
+                            >
+                                TW
+                            </div>
+                            <h4>Thomas W.</h4>
+                            <span>Vertriebsleiter, 48</span>
+                        </div>
+                    </div>
+                    <div class="chat-area">
+                        <div class="msg">
+                            <div
+                                class="av-sm"
+                                style="background: #f4f887; color: #222222"
+                            >
+                                SK
+                            </div>
+                            <div class="bubble ai">
+                                Ehrlich gesagt finde ich den Bestellprozess zu
+                                komplex. Nach Schritt 3 verliere ich die
+                                Übersicht, besonders wenn ich mehrere Varianten
+                                vergleichen will.
+                            </div>
+                        </div>
+                        <div class="msg user">
+                            <div
+                                class="av-sm"
+                                style="background: #eeedfe; color: #3c3489"
+                            >
+                                Du
+                            </div>
+                            <div class="bubble human">
+                                Was würde dir den Prozess leichter machen?
+                            </div>
+                        </div>
+                        <div class="msg">
+                            <div
+                                class="av-sm"
+                                style="background: #f4f887; color: #222222"
+                            >
+                                SK
+                            </div>
+                            <div class="bubble ai">
+                                Eine Seitenleiste, die meine Auswahl festhält.
+                                Und bitte keine Pflichtfelder, bevor ich
+                                überhaupt weiß, was ich bestellen möchte.
+                            </div>
+                        </div>
+                        <div class="chat-input-row">
+                            <div class="chat-input-wrapper">
+                                <span class="input-sparkle">
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M12 2L14.5 7.5L20 10L14.5 12.5L12 18L9.5 12.5L4 10L9.5 7.5L12 2Z"
+                                        ></path>
+                                    </svg>
+                                </span>
+                                <input
+                                    type="text"
+                                    class="chat-mock-input"
+                                    placeholder="Stell Sandra eine Frage..."
+                                    id="chatInput"
+                                />
+                                <button
+                                    class="input-send"
+                                    id="sendBtn"
+                                    aria-label="Send message"
+                                >
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="section">
+                <p class="section-label">So funktioniert's</p>
+                <h2>Vom Workshop zur digitalen Kundenstimme.</h2>
+                <p class="lead">
+                    haico verbindet strukturierte Workshops mit KI-Technologie
+                    zu einem schlanken, wiederholbaren Prozess.
+                </p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h3>Persona Workshop</h3>
+                        <p>
+                            Gemeinsam mit philoneos definieren wir deine
+                            relevanten Zielgruppen und schaffen die Datenbasis
+                            für dein KI-gestütztes Persona-Tool.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h3>Digitaler Aufbau</h3>
+                        <p>
+                            Wir übersetzen die Workshop-Erkenntnisse in 3 bis 5
+                            trainierte, gesprächsfähige Kundenpersönlichkeiten
+                            auf der haico-Plattform.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h3>Jederzeit abrufbar</h3>
+                        <p>
+                            Dein Team holt sich die Kundenperspektive für
+                            Kampagnen, Konzepte oder schnelle Checks direkt und
+                            ohne Warten auf Studien und Befragungen.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY HAICO -->
+            <section class="section">
+                <p class="section-label">Warum haico</p>
+                <h2>Kein Rätselraten mehr, was der Kunde denkt.</h2>
+                <p class="lead">
+                    Customer Centricity scheitert oft nicht am Willen, sondern
+                    am Zugang. haico löst das strukturell.
+                </p>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <svg
+                            class="why-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                            <circle cx="19" cy="8" r="3" />
+                            <path d="M22 18c0-2.5-1.8-4.5-4-5" />
+                        </svg>
+                        <h3>Kundenperspektive ohne Terminabstimmung</h3>
+                        <p>
+                            Kein Recruiting, keine NDA, kein Warten auf
+                            Feedback-Runden. Deine digitale Zielgruppe ist
+                            sofort gesprächsbereit, genau dann wenn du sie
+                            brauchst.
+                        </p>
+                    </div>
+
+                    <div class="why-card">
+                        <svg
+                            class="why-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                        <h3>Forschungsbasiert und valide</h3>
+                        <p>
+                            Synthetische Kundendaten aus Sprachmodellen können
+                            menschliches Verhalten in Befragungssituationen
+                            zuverlässig abbilden, belegt durch peer-reviewte
+                            Forschung.
+                        </p>
+                        <cite
+                            >Argyle et al. (2023), Political Analysis. Brand et
+                            al. (2024), Harvard Business School.</cite
+                        >
+                    </div>
+
+                    <div class="why-card">
+                        <svg
+                            class="why-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <h3>Immer ein Platz am Meetingtisch</h3>
+                        <p>
+                            Produktentscheidungen, Kampagnenkonzepte,
+                            Serviceprozesse: Hole dir vor jedem Beschluss eine
+                            echte Kundenstimme in den Raum.
+                        </p>
+                    </div>
+
+                    <div class="why-card">
+                        <svg
+                            class="why-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            />
+                        </svg>
+                        <h3>Qualität durch Struktur</h3>
+                        <p>
+                            Die Güte einer digitalen Persona steht und fällt mit
+                            der Tiefe der Segmentierung. Deshalb startet haico
+                            immer mit einem professionellen Workshop.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESEARCH BUNDLE -->
+            <div class="research-bundle">
+                <h3>Die Forschung dahinter</h3>
+                <p class="rb-sub">
+                    Dass KI menschliches Verhalten simulieren kann, ist keine
+                    Behauptung, sondern ein forschungsbasierter Befund. Hier die
+                    wichtigsten Quellen.
+                </p>
+                <div class="research-items">
+                    <div class="r-item">
+                        <div class="r-dot"></div>
+                        <div>
+                            <p>
+                                Große Sprachmodelle können demographisch
+                                definierte Bevölkerungsgruppen so verlässlich
+                                simulieren, dass ihre Antworten mit echten
+                                Umfragedaten übereinstimmen.
+                            </p>
+                            <cite
+                                >Argyle, L.P. et al. (2023). Out of One, Many.
+                                Political Analysis, 31(3), 337–351. DOI:
+                                10.1017/pan.2023.2</cite
+                            >
+                        </div>
+                    </div>
+                    <div class="r-item">
+                        <div class="r-dot"></div>
+                        <div>
+                            <p>
+                                LLM-basierte Conjoint-Analysen liefern
+                                Ergebnisse, die realen Konsumentenbefragungen
+                                bemerkenswert ähnlich sind, zu einem Bruchteil
+                                der Kosten und Zeit.
+                            </p>
+                            <cite
+                                >Brand, J., Israeli, A. & Ngwe, D. (2024). Using
+                                LLMs for Market Research. Harvard Business
+                                School Working Paper 23-062.</cite
+                            >
+                        </div>
+                    </div>
+                    <div class="r-item">
+                        <div class="r-dot"></div>
+                        <div>
+                            <p>
+                                Synthetische LLM-Daten können reale
+                                Nutzerbefragungen im Früh-Screening neuer
+                                Produktideen valide ergänzen und erheblich
+                                Kosten reduzieren.
+                            </p>
+                            <cite
+                                >Hämäläinen, P. et al. (2023). Evaluating LLMs
+                                in Generating Synthetic HCI Research Data. CHI
+                                '23. DOI: 10.1145/3544548.3580688</cite
+                            >
+                        </div>
+                    </div>
+                    <div class="nature-ref">
+                        <span class="nature-label">nature</span>
+                        <div class="nature-ref-text">
+                            <p>
+                                Das Helmholtz Center München zeigte 2025 in
+                                <em>Nature</em>, dass KI menschliches Verhalten
+                                nicht nur imitieren, sondern in neuen,
+                                unbekannten Situationen vorhersagen kann,
+                                trainiert auf über 10 Millionen menschlichen
+                                Entscheidungen in 160 Experimenten.
+                            </p>
+                            <cite
+                                >Binz, M. et al. (2025). A foundation model to
+                                predict and capture human cognition. Nature,
+                                644(8078), 1002–1009.</cite
+                            >
+                            <a
+                                href="https://www.nature.com/articles/s41586-025-09215-4"
+                                target="_blank"
+                                rel="noopener"
+                                >Zur Originalpublikation ↗</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DSGVO BLOCK -->
+            <div class="dsgvo-block">
+                <div>
+                    <p class="section-label">Datensouveränität</p>
+                    <h2 class="dsgvo-headline">
+                        KI made in Europe.<br />Daten bleiben in Europa.
+                    </h2>
+                    <p class="dsgvo-body">
+                        haico basiert auf Mistral, dem führenden europäischen
+                        Open-Source-Sprachmodell aus Frankreich. Betrieben auf
+                        Servern innerhalb der EU.
+                    </p>
+                    <p class="dsgvo-body">
+                        <strong
+                            >Kein Datentransfer in die USA. Keine Abhängigkeit
+                            von amerikanischen Hyperscalern.</strong
+                        >
+                        Eure Daten werden zu keinem Zeitpunkt zum Training des
+                        Modells verwendet.
+                    </p>
+                </div>
+                <div class="dsgvo-right">
+                    <div class="dsgvo-card">
+                        <svg
+                            class="dsgvo-card-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"
+                            />
+                        </svg>
+                        <div class="dsgvo-card-text">
+                            <h4>Europäische KI-Basis</h4>
+                            <p>Mistral AI, Paris</p>
+                        </div>
+                    </div>
+                    <div class="dsgvo-card">
+                        <svg
+                            class="dsgvo-card-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                        <div class="dsgvo-card-text">
+                            <h4>EU-Hosting</h4>
+                            <p>Server innerhalb der EU</p>
+                        </div>
+                    </div>
+                    <div class="dsgvo-card">
+                        <svg
+                            class="dsgvo-card-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            />
+                            <polyline points="9 12 11 14 15 10" />
+                        </svg>
+                        <div class="dsgvo-card-text">
+                            <h4>DSGVO-konform by design</h4>
+                            <p>Keine Trainingsdaten aus euren Inhalten.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-block">
+                <h2>Bereit, deinen Kunden kennenzulernen?</h2>
+                <p>
+                    Starte mit einem kostenlosen Erstgespräch. Wir zeigen dir,
+                    wie haico in deinem Kontext funktioniert.
+                </p>
+                <a
+                    href="mailto:scott.keller@philoneos.com?subject=Erstgespr%C3%A4ch%20haico&body=Hallo%20Scott%2C%0A%0Aich%20w%C3%BCrde%20gerne%20ein%20Erstgespr%C3%A4ch%20zu%20haico%20vereinbaren.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+                    class="btn-light"
+                    >Erstgespräch vereinbaren</a
+                >
+            </div>
+
+            <footer>
+                <a href="#" class="logo" style="text-decoration: none">
+                    <img
+                        src="assets/images/footer-logo.png"
+                        alt="haico logo"
+                        style="height: 32px; width: auto; display: block"
+                    />
+                </a>
+                <p style="color: #666">
+                    Ein Produkt der philoneos GmbH, München &nbsp;·&nbsp;
+                    DSGVO-konform &nbsp;·&nbsp; Made in Germany
+                </p>
+            </footer>
         </div>
+        <!-- /.lp -->
 
-        <div class="why-card">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1" />
-            <rect x="14" y="3" width="7" height="7" rx="1" />
-            <rect x="3" y="14" width="7" height="7" rx="1" />
-            <rect x="14" y="14" width="7" height="7" rx="1" />
-          </svg>
-          <h3>Immer ein Platz am Meetingtisch</h3>
-          <p>Produktentscheidungen, Kampagnenkonzepte, Serviceprozesse: Hole dir vor jedem Beschluss eine echte
-            Kundenstimme in den Raum.</p>
-        </div>
+        <script>
+            // Scroll animation observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px',
+            };
 
-        <div class="why-card">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-          <h3>Qualität durch Struktur</h3>
-          <p>Die Güte einer digitalen Persona steht und fällt mit der Tiefe der Segmentierung. Deshalb startet haico
-            immer mit einem professionellen Workshop.</p>
-        </div>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    } else {
+                        entry.target.classList.remove('animated');
+                    }
+                });
+            }, observerOptions);
 
-      </div>
-    </section>
+            // Initialize animations when DOM is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                // Add animation classes to elements
+                const animatedElements = document.querySelectorAll(
+                    '.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer',
+                );
 
-    <!-- RESEARCH BUNDLE -->
-    <div class="research-bundle">
-      <h3>Die Forschung dahinter</h3>
-      <p class="rb-sub">Dass KI menschliches Verhalten simulieren kann, ist keine Behauptung, sondern ein
-        forschungsbasierter Befund. Hier die wichtigsten Quellen.</p>
-      <div class="research-items">
-        <div class="r-item">
-          <div class="r-dot"></div>
-          <div>
-            <p>Große Sprachmodelle können demographisch definierte Bevölkerungsgruppen so verlässlich simulieren, dass
-              ihre Antworten mit echten Umfragedaten übereinstimmen.</p>
-            <cite>Argyle, L.P. et al. (2023). Out of One, Many. Political Analysis, 31(3), 337–351. DOI:
-              10.1017/pan.2023.2</cite>
-          </div>
-        </div>
-        <div class="r-item">
-          <div class="r-dot"></div>
-          <div>
-            <p>LLM-basierte Conjoint-Analysen liefern Ergebnisse, die realen Konsumentenbefragungen bemerkenswert
-              ähnlich sind, zu einem Bruchteil der Kosten und Zeit.</p>
-            <cite>Brand, J., Israeli, A. & Ngwe, D. (2024). Using LLMs for Market Research. Harvard Business School
-              Working Paper 23-062.</cite>
-          </div>
-        </div>
-        <div class="r-item">
-          <div class="r-dot"></div>
-          <div>
-            <p>Synthetische LLM-Daten können reale Nutzerbefragungen im Früh-Screening neuer Produktideen valide
-              ergänzen und erheblich Kosten reduzieren.</p>
-            <cite>Hämäläinen, P. et al. (2023). Evaluating LLMs in Generating Synthetic HCI Research Data. CHI '23. DOI:
-              10.1145/3544548.3580688</cite>
-          </div>
-        </div>
-        <div class="nature-ref">
-          <span class="nature-label">nature</span>
-          <div class="nature-ref-text">
-            <p>Das Helmholtz Center München zeigte 2025 in <em>Nature</em>, dass KI menschliches Verhalten nicht nur
-              imitieren, sondern in neuen, unbekannten Situationen vorhersagen kann, trainiert auf über 10 Millionen
-              menschlichen Entscheidungen in 160 Experimenten.</p>
-            <cite>Binz, M. et al. (2025). A foundation model to predict and capture human cognition. Nature, 644(8078),
-              1002–1009.</cite>
-            <a href="https://www.nature.com/articles/s41586-025-09215-4" target="_blank" rel="noopener">Zur
-              Originalpublikation ↗</a>
-          </div>
-        </div>
-      </div>
-    </div>
+                animatedElements.forEach((el) => {
+                    el.classList.add('animate-on-scroll');
+                    observer.observe(el);
+                });
 
-    <!-- DSGVO BLOCK -->
-    <div class="dsgvo-block">
-      <div>
-        <p class="section-label">Datensouveränität</p>
-        <h2 class="dsgvo-headline">KI made in Europe.<br>Daten bleiben in Europa.</h2>
-        <p class="dsgvo-body">haico basiert auf Mistral, dem führenden europäischen Open-Source-Sprachmodell aus
-          Frankreich. Betrieben auf Servern innerhalb der EU.</p>
-        <p class="dsgvo-body"><strong>Kein Datentransfer in die USA. Keine Abhängigkeit von amerikanischen
-            Hyperscalern.</strong> Eure Daten werden zu keinem Zeitpunkt zum Training des Modells verwendet.</p>
-      </div>
-      <div class="dsgvo-right">
-        <div class="dsgvo-card">
-          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
-          </svg>
-          <div class="dsgvo-card-text">
-            <h4>Europäische KI-Basis</h4>
-            <p>Mistral AI, Paris</p>
-          </div>
-        </div>
-        <div class="dsgvo-card">
-          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2" />
-            <path d="M8 21h8M12 17v4" />
-          </svg>
-          <div class="dsgvo-card-text">
-            <h4>EU-Hosting</h4>
-            <p>Server innerhalb der EU</p>
-          </div>
-        </div>
-        <div class="dsgvo-card">
-          <svg class="dsgvo-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <polyline points="9 12 11 14 15 10" />
-          </svg>
-          <div class="dsgvo-card-text">
-            <h4>DSGVO-konform by design</h4>
-            <p>Keine Trainingsdaten aus euren Inhalten.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+                // Add staggered animation to step cards
+                const stepCards = document.querySelectorAll('.step');
+                stepCards.forEach((step, index) => {
+                    step.style.animationDelay = `${index * 0.1}s`;
+                });
 
-    <!-- CTA -->
-    <div class="cta-block">
-      <h2>Bereit, deinen Kunden kennenzulernen?</h2>
-      <p>Starte mit einem kostenlosen Erstgespräch. Wir zeigen dir, wie haico in deinem Kontext funktioniert.</p>
-      <a href="mailto:scott.keller@philoneos.com?subject=Erstgespr%C3%A4ch%20haico&body=Hallo%20Scott%2C%0A%0Aich%20w%C3%BCrde%20gerne%20ein%20Erstgespr%C3%A4ch%20zu%20haico%20vereinbaren.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
-        class="btn-light">Erstgespräch vereinbaren</a>
-    </div>
+                // Add staggered animation to why cards
+                const whyCards = document.querySelectorAll('.why-card');
+                whyCards.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                });
 
-    <footer>
-      <a href="#" class="logo" style="text-decoration:none;">
-        <img src="assets/images/footer-logo.png" alt="haico logo" style="height:32px;width:auto;display:block;" />
-      </a>
-      <p style="color:#666;">Ein Produkt der philoneos GmbH, München &nbsp;·&nbsp; DSGVO-konform &nbsp;·&nbsp; Made in
-        Germany</p>
-    </footer>
+                // Add staggered animation to persona cards
+                const personaCards = document.querySelectorAll('.persona');
+                personaCards.forEach((persona, index) => {
+                    persona.style.animationDelay = `${index * 0.1}s`;
+                });
+            });
 
-  </div><!-- /.lp -->
+            // Persona data with different chat content
+            const personaData = {
+                sandra: {
+                    name: 'Sandra K.',
+                    initials: 'SK',
+                    color: '#F4F887',
+                    textColor: '#222222',
+                    placeholder: 'Stell Sandra eine Frage...',
+                    messages: [
+                        {
+                            type: 'ai',
+                            text: 'Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.',
+                        },
+                        {
+                            type: 'human',
+                            text: 'Was würde dir den Prozess leichter machen?',
+                        },
+                        {
+                            type: 'ai',
+                            text: 'Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor ich überhaupt weiß, was ich bestellen möchte.',
+                        },
+                    ],
+                },
+                markus: {
+                    name: 'Markus R.',
+                    initials: 'MR',
+                    color: '#EEEDFE',
+                    textColor: '#3C3489',
+                    placeholder: 'Stell Markus eine Frage...',
+                    messages: [
+                        {
+                            type: 'ai',
+                            text: 'Als Geschäftsführer habe ich keine Zeit für lange Einarbeitungen. Ich brauche Lösungen, die sofort funktionieren.',
+                        },
+                        {
+                            type: 'human',
+                            text: 'Was ist dir bei neuen Tools am wichtigsten?',
+                        },
+                        {
+                            type: 'ai',
+                            text: 'ROI und Zeiteffizienz. Wenn ich nicht innerhalb von 15 Minuten sehe, wie es mir hilft, verliere ich das Interesse.',
+                        },
+                    ],
+                },
+                lena: {
+                    name: 'Lena P.',
+                    initials: 'LP',
+                    color: '#FAEEDA',
+                    textColor: '#633806',
+                    placeholder: 'Stell Lena eine Frage...',
+                    messages: [
+                        {
+                            type: 'ai',
+                            text: 'Ich liebe es, neue Features zu entdecken! Aber bitte nicht zu viele auf einmal. Das überfordert mich.',
+                        },
+                        {
+                            type: 'human',
+                            text: 'Wie bevorzugst du neue Funktionen zu lernen?',
+                        },
+                        {
+                            type: 'ai',
+                            text: 'Am besten durch interaktive Tutorials. Zeig mir, wie es funktioniert, statt mir nur Text zu geben.',
+                        },
+                    ],
+                },
+                thomas: {
+                    name: 'Thomas W.',
+                    initials: 'TW',
+                    color: '#FAECE7',
+                    textColor: '#712B13',
+                    placeholder: 'Stell Thomas eine Frage...',
+                    messages: [
+                        {
+                            type: 'ai',
+                            text: 'Mein Team im Vertrieb braucht Tools, die tatsächlich den Verkauf vereinfachen, nicht komplizierter machen.',
+                        },
+                        {
+                            type: 'human',
+                            text: 'Was sind die größten Hürden im Vertrieb?',
+                        },
+                        {
+                            type: 'ai',
+                            text: 'Dokumentation und Follow-up. Wenn das Tool nicht automatisch hilft, verlieren wir Leads.',
+                        },
+                    ],
+                },
+            };
 
-  <script>
+            // Get DOM elements
+            const personaCards = document.querySelectorAll('.persona');
+            const chatArea = document.querySelector('.chat-area');
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendBtn');
 
-    // Scroll animation observer
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+            // Function to update chat content
+            function updateChatContent(personaKey) {
+                const persona = personaData[personaKey];
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-        } else {
-          entry.target.classList.remove('animated');
-        }
-      });
-    }, observerOptions);
+                // Update input placeholder
+                chatInput.placeholder = persona.placeholder;
 
-    // Initialize animations when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add animation classes to elements
-      const animatedElements = document.querySelectorAll('.section, .proof, .demo-frame, .steps, .why-grid, .nature-block, .dsgvo-block, .research, .cta-block, footer');
+                // Clear existing messages except input row
+                const messages = chatArea.querySelectorAll('.msg');
+                messages.forEach((msg) => msg.remove());
 
-      animatedElements.forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-      });
+                // Add new messages
+                persona.messages.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = `msg ${msg.type === 'human' ? 'user' : ''}`;
 
-      // Add staggered animation to step cards
-      const stepCards = document.querySelectorAll('.step');
-      stepCards.forEach((step, index) => {
-        step.style.animationDelay = `${index * 0.1}s`;
-      });
+                    const avDiv = document.createElement('div');
+                    avDiv.className = 'av-sm';
+                    avDiv.style.background = persona.color;
+                    avDiv.style.color = persona.textColor;
+                    avDiv.textContent =
+                        msg.type === 'human' ? 'Du' : persona.initials;
 
-      // Add staggered animation to why cards
-      const whyCards = document.querySelectorAll('.why-card');
-      whyCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-      });
+                    const bubbleDiv = document.createElement('div');
+                    bubbleDiv.className = `bubble ${msg.type === 'human' ? 'human' : 'ai'}`;
+                    bubbleDiv.textContent = msg.text;
 
-      // Add staggered animation to persona cards
-      const personaCards = document.querySelectorAll('.persona');
-      personaCards.forEach((persona, index) => {
-        persona.style.animationDelay = `${index * 0.1}s`;
-      });
-    });
+                    msgDiv.appendChild(avDiv);
+                    msgDiv.appendChild(bubbleDiv);
 
-    // Persona data with different chat content
-    const personaData = {
-      sandra: {
-        name: 'Sandra K.',
-        initials: 'SK',
-        color: '#F4F887',
-        textColor: '#222222',
-        placeholder: 'Stell Sandra eine Frage...',
-        messages: [
-          { type: 'ai', text: 'Ehrlich gesagt finde ich den Bestellprozess zu komplex. Nach Schritt 3 verliere ich die Übersicht, besonders wenn ich mehrere Varianten vergleichen will.' },
-          { type: 'human', text: 'Was würde dir den Prozess leichter machen?' },
-          { type: 'ai', text: 'Eine Seitenleiste, die meine Auswahl festhält. Und bitte keine Pflichtfelder, bevor ich überhaupt weiß, was ich bestellen möchte.' }
-        ]
-      },
-      markus: {
-        name: 'Markus R.',
-        initials: 'MR',
-        color: '#EEEDFE',
-        textColor: '#3C3489',
-        placeholder: 'Stell Markus eine Frage...',
-        messages: [
-          { type: 'ai', text: 'Als Geschäftsführer habe ich keine Zeit für lange Einarbeitungen. Ich brauche Lösungen, die sofort funktionieren.' },
-          { type: 'human', text: 'Was ist dir bei neuen Tools am wichtigsten?' },
-          { type: 'ai', text: 'ROI und Zeiteffizienz. Wenn ich nicht innerhalb von 15 Minuten sehe, wie es mir hilft, verliere ich das Interesse.' }
-        ]
-      },
-      lena: {
-        name: 'Lena P.',
-        initials: 'LP',
-        color: '#FAEEDA',
-        textColor: '#633806',
-        placeholder: 'Stell Lena eine Frage...',
-        messages: [
-          { type: 'ai', text: 'Ich liebe es, neue Features zu entdecken! Aber bitte nicht zu viele auf einmal. Das überfordert mich.' },
-          { type: 'human', text: 'Wie bevorzugst du neue Funktionen zu lernen?' },
-          { type: 'ai', text: 'Am besten durch interaktive Tutorials. Zeig mir, wie es funktioniert, statt mir nur Text zu geben.' }
-        ]
-      },
-      thomas: {
-        name: 'Thomas W.',
-        initials: 'TW',
-        color: '#FAECE7',
-        textColor: '#712B13',
-        placeholder: 'Stell Thomas eine Frage...',
-        messages: [
-          { type: 'ai', text: 'Mein Team im Vertrieb braucht Tools, die tatsächlich den Verkauf vereinfachen, nicht komplizierter machen.' },
-          { type: 'human', text: 'Was sind die größten Hürden im Vertrieb?' },
-          { type: 'ai', text: 'Dokumentation und Follow-up. Wenn das Tool nicht automatisch hilft, verlieren wir Leads.' }
-        ]
-      }
-    };
+                    // Insert before input row
+                    const inputRow = document.querySelector('.chat-input-row');
+                    chatArea.insertBefore(msgDiv, inputRow);
+                });
+            }
 
-    // Get DOM elements
-    const personaCards = document.querySelectorAll('.persona');
-    const chatArea = document.querySelector('.chat-area');
-    const chatInput = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('sendBtn');
+            // Add click event listeners to persona cards
+            personaCards.forEach((card) => {
+                card.addEventListener('click', function () {
+                    // Remove active class from all cards
+                    personaCards.forEach((c) => c.classList.remove('active'));
 
-    // Function to update chat content
-    function updateChatContent(personaKey) {
-      const persona = personaData[personaKey];
+                    // Add active class to clicked card
+                    this.classList.add('active');
 
-      // Update input placeholder
-      chatInput.placeholder = persona.placeholder;
+                    // Update chat content
+                    const personaKey = this.getAttribute('data-persona');
+                    updateChatContent(personaKey);
+                });
+            });
 
-      // Clear existing messages except input row
-      const messages = chatArea.querySelectorAll('.msg');
-      messages.forEach(msg => msg.remove());
+            // Add send button functionality
+            sendBtn.addEventListener('click', function () {
+                const message = chatInput.value.trim();
+                if (message) {
+                    // Add user message
+                    const activePersona =
+                        document.querySelector('.persona.active');
+                    const personaKey =
+                        activePersona.getAttribute('data-persona');
+                    const persona = personaData[personaKey];
 
-      // Add new messages
-      persona.messages.forEach(msg => {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `msg ${msg.type === 'human' ? 'user' : ''}`;
+                    const userMsgDiv = document.createElement('div');
+                    userMsgDiv.className = 'msg user';
 
-        const avDiv = document.createElement('div');
-        avDiv.className = 'av-sm';
-        avDiv.style.background = persona.color;
-        avDiv.style.color = persona.textColor;
-        avDiv.textContent = msg.type === 'human' ? 'Du' : persona.initials;
+                    const userAvDiv = document.createElement('div');
+                    userAvDiv.className = 'av-sm';
+                    userAvDiv.style.background = '#EEEDFE';
+                    userAvDiv.style.color = '#3C3489';
+                    userAvDiv.textContent = 'Du';
 
-        const bubbleDiv = document.createElement('div');
-        bubbleDiv.className = `bubble ${msg.type === 'human' ? 'human' : 'ai'}`;
-        bubbleDiv.textContent = msg.text;
+                    const userBubbleDiv = document.createElement('div');
+                    userBubbleDiv.className = 'bubble human';
+                    userBubbleDiv.textContent = message;
 
-        msgDiv.appendChild(avDiv);
-        msgDiv.appendChild(bubbleDiv);
+                    userMsgDiv.appendChild(userAvDiv);
+                    userMsgDiv.appendChild(userBubbleDiv);
 
-        // Insert before input row
-        const inputRow = document.querySelector('.chat-input-row');
-        chatArea.insertBefore(msgDiv, inputRow);
-      });
-    }
+                    const inputRow = document.querySelector('.chat-input-row');
+                    chatArea.insertBefore(userMsgDiv, inputRow);
 
-    // Add click event listeners to persona cards
-    personaCards.forEach(card => {
-      card.addEventListener('click', function () {
-        // Remove active class from all cards
-        personaCards.forEach(c => c.classList.remove('active'));
+                    // Clear input
+                    chatInput.value = '';
 
-        // Add active class to clicked card
-        this.classList.add('active');
+                    // Simulate AI response after a short delay
+                    setTimeout(() => {
+                        const aiMsgDiv = document.createElement('div');
+                        aiMsgDiv.className = 'msg';
 
-        // Update chat content
-        const personaKey = this.getAttribute('data-persona');
-        updateChatContent(personaKey);
-      });
-    });
+                        const aiAvDiv = document.createElement('div');
+                        aiAvDiv.className = 'av-sm';
+                        aiAvDiv.style.background = persona.color;
+                        aiAvDiv.style.color = persona.textColor;
+                        aiAvDiv.textContent = persona.initials;
 
-    // Add send button functionality
-    sendBtn.addEventListener('click', function () {
-      const message = chatInput.value.trim();
-      if (message) {
-        // Add user message
-        const activePersona = document.querySelector('.persona.active');
-        const personaKey = activePersona.getAttribute('data-persona');
-        const persona = personaData[personaKey];
+                        const aiBubbleDiv = document.createElement('div');
+                        aiBubbleDiv.className = 'bubble ai';
+                        aiBubbleDiv.textContent =
+                            'Das ist eine interessante Frage. Lass mich darüber nachdenken...';
 
-        const userMsgDiv = document.createElement('div');
-        userMsgDiv.className = 'msg user';
+                        aiMsgDiv.appendChild(aiAvDiv);
+                        aiMsgDiv.appendChild(aiBubbleDiv);
 
-        const userAvDiv = document.createElement('div');
-        userAvDiv.className = 'av-sm';
-        userAvDiv.style.background = '#EEEDFE';
-        userAvDiv.style.color = '#3C3489';
-        userAvDiv.textContent = 'Du';
+                        chatArea.insertBefore(aiMsgDiv, inputRow);
 
-        const userBubbleDiv = document.createElement('div');
-        userBubbleDiv.className = 'bubble human';
-        userBubbleDiv.textContent = message;
+                        // Scroll to bottom
+                        chatArea.scrollTop = chatArea.scrollHeight;
+                    }, 1000);
 
-        userMsgDiv.appendChild(userAvDiv);
-        userMsgDiv.appendChild(userBubbleDiv);
+                    // Scroll to bottom
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                }
+            });
 
-        const inputRow = document.querySelector('.chat-input-row');
-        chatArea.insertBefore(userMsgDiv, inputRow);
+            // Add enter key support
+            chatInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendBtn.click();
+                }
+            });
 
-        // Clear input
-        chatInput.value = '';
+            // Auto-scroll clicked persona card to center
+            const personasContainer = document.querySelector('.personas');
+            if (personasContainer) {
+                personasContainer.addEventListener('click', function (e) {
+                    const personaCard = e.target.closest('.persona');
+                    if (personaCard) {
+                        const containerRect =
+                            personasContainer.getBoundingClientRect();
+                        const cardRect = personaCard.getBoundingClientRect();
 
-        // Simulate AI response after a short delay
-        setTimeout(() => {
-          const aiMsgDiv = document.createElement('div');
-          aiMsgDiv.className = 'msg';
+                        // Calculate the scroll position to center the card
+                        const scrollLeft =
+                            personaCard.offsetLeft -
+                            containerRect.width / 2 +
+                            cardRect.width / 2;
 
-          const aiAvDiv = document.createElement('div');
-          aiAvDiv.className = 'av-sm';
-          aiAvDiv.style.background = persona.color;
-          aiAvDiv.style.color = persona.textColor;
-          aiAvDiv.textContent = persona.initials;
-
-          const aiBubbleDiv = document.createElement('div');
-          aiBubbleDiv.className = 'bubble ai';
-          aiBubbleDiv.textContent = 'Das ist eine interessante Frage. Lass mich darüber nachdenken...';
-
-          aiMsgDiv.appendChild(aiAvDiv);
-          aiMsgDiv.appendChild(aiBubbleDiv);
-
-          chatArea.insertBefore(aiMsgDiv, inputRow);
-
-          // Scroll to bottom
-          chatArea.scrollTop = chatArea.scrollHeight;
-        }, 1000);
-
-        // Scroll to bottom
-        chatArea.scrollTop = chatArea.scrollHeight;
-      }
-    });
-
-    // Add enter key support
-    chatInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        sendBtn.click();
-      }
-    });
-
-    // Auto-scroll clicked persona card to center
-    const personasContainer = document.querySelector('.personas');
-    if (personasContainer) {
-      personasContainer.addEventListener('click', function (e) {
-        const personaCard = e.target.closest('.persona');
-        if (personaCard) {
-          const containerRect = personasContainer.getBoundingClientRect();
-          const cardRect = personaCard.getBoundingClientRect();
-
-          // Calculate the scroll position to center the card
-          const scrollLeft = personaCard.offsetLeft - (containerRect.width / 2) + (cardRect.width / 2);
-
-          // Smooth scroll to center
-          personasContainer.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth'
-          });
-        }
-      });
-    }
-  </script>
-
-</body>
-
+                        // Smooth scroll to center
+                        personasContainer.scrollTo({
+                            left: scrollLeft,
+                            behavior: 'smooth',
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
 </html>
